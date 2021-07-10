@@ -1,0 +1,850 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED947B852699E47600310CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947B842699E47600310CBA /* AppDelegate.swift */; };
+		ED947B892699E47600310CBA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = ED947B872699E47600310CBA /* Main.html */; };
+		ED947B8B2699E47600310CBA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED947B8A2699E47600310CBA /* Icon.png */; };
+		ED947B8D2699E47600310CBA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = ED947B8C2699E47600310CBA /* Style.css */; };
+		ED947B8F2699E47600310CBA /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = ED947B8E2699E47600310CBA /* Script.js */; };
+		ED947B912699E47600310CBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947B902699E47600310CBA /* ViewController.swift */; };
+		ED947B942699E47600310CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED947B922699E47600310CBA /* Main.storyboard */; };
+		ED947B962699E47800310CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED947B952699E47800310CBA /* Assets.xcassets */; };
+		ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */; };
+		ED947BAB2699E47800310CBA /* MightyTabRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BAA2699E47800310CBA /* MightyTabRefreshUITests.swift */; };
+		ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ED947BB62699E47800310CBA /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */; };
+		ED947BB82699E47800310CBA /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */; };
+		ED947BBB2699E47800310CBA /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBA2699E47800310CBA /* script.js */; };
+		ED947BBD2699E47800310CBA /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */; };
+		ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED947B9D2699E47800310CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED947B792699E47600310CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED947B802699E47600310CBA;
+			remoteInfo = MightyTabRefresh;
+		};
+		ED947BA72699E47800310CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED947B792699E47600310CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED947B802699E47600310CBA;
+			remoteInfo = MightyTabRefresh;
+		};
+		ED947BB22699E47800310CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED947B792699E47600310CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED947BAF2699E47800310CBA;
+			remoteInfo = "MightyTabRefresh Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ED947BC72699E47800310CBA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		ED947B812699E47600310CBA /* MightyTabRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyTabRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED947B842699E47600310CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ED947B882699E47600310CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		ED947B8A2699E47600310CBA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		ED947B8C2699E47600310CBA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		ED947B8E2699E47600310CBA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		ED947B902699E47600310CBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED947B932699E47600310CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED947B952699E47800310CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED947B972699E47800310CBA /* MightyTabRefresh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MightyTabRefresh.entitlements; sourceTree = "<group>"; };
+		ED947B9C2699E47800310CBA /* MightyTabRefreshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MightyTabRefreshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MightyTabRefreshTests.swift; sourceTree = "<group>"; };
+		ED947BA62699E47800310CBA /* MightyTabRefreshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MightyTabRefreshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED947BAA2699E47800310CBA /* MightyTabRefreshUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MightyTabRefreshUITests.swift; sourceTree = "<group>"; };
+		ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MightyTabRefresh Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		ED947BBA2699E47800310CBA /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		ED947BBF2699E47800310CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		ED947BC12699E47800310CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED947BD12699E68A00310CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED947B7E2699E47600310CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947B992699E47800310CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947BA32699E47800310CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947BAD2699E47800310CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED947B782699E47600310CBA = {
+			isa = PBXGroup;
+			children = (
+				ED947B832699E47600310CBA /* MightyTabRefresh */,
+				ED947B9F2699E47800310CBA /* MightyTabRefreshTests */,
+				ED947BA92699E47800310CBA /* MightyTabRefreshUITests */,
+				ED947BB42699E47800310CBA /* MightyTabRefresh Extension */,
+				ED947B822699E47600310CBA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED947B822699E47600310CBA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED947B812699E47600310CBA /* MightyTabRefresh.app */,
+				ED947B9C2699E47800310CBA /* MightyTabRefreshTests.xctest */,
+				ED947BA62699E47800310CBA /* MightyTabRefreshUITests.xctest */,
+				ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED947B832699E47600310CBA /* MightyTabRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				ED947BD12699E68A00310CBA /* Info.plist */,
+				ED947B842699E47600310CBA /* AppDelegate.swift */,
+				ED947B902699E47600310CBA /* ViewController.swift */,
+				ED947B922699E47600310CBA /* Main.storyboard */,
+				ED947B952699E47800310CBA /* Assets.xcassets */,
+				ED947B972699E47800310CBA /* MightyTabRefresh.entitlements */,
+				ED947B862699E47600310CBA /* Resources */,
+			);
+			path = MightyTabRefresh;
+			sourceTree = "<group>";
+		};
+		ED947B862699E47600310CBA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED947B872699E47600310CBA /* Main.html */,
+				ED947B8A2699E47600310CBA /* Icon.png */,
+				ED947B8C2699E47600310CBA /* Style.css */,
+				ED947B8E2699E47600310CBA /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED947B9F2699E47800310CBA /* MightyTabRefreshTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */,
+			);
+			path = MightyTabRefreshTests;
+			sourceTree = "<group>";
+		};
+		ED947BA92699E47800310CBA /* MightyTabRefreshUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED947BAA2699E47800310CBA /* MightyTabRefreshUITests.swift */,
+			);
+			path = MightyTabRefreshUITests;
+			sourceTree = "<group>";
+		};
+		ED947BB42699E47800310CBA /* MightyTabRefresh Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */,
+				ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */,
+				ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */,
+				ED947BC12699E47800310CBA /* Info.plist */,
+				ED947BB92699E47800310CBA /* Resources */,
+			);
+			path = "MightyTabRefresh Extension";
+			sourceTree = "<group>";
+		};
+		ED947BB92699E47800310CBA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED947BBA2699E47800310CBA /* script.js */,
+				ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED947B802699E47600310CBA /* MightyTabRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED947BC82699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefresh" */;
+			buildPhases = (
+				ED947B7D2699E47600310CBA /* Sources */,
+				ED947B7E2699E47600310CBA /* Frameworks */,
+				ED947B7F2699E47600310CBA /* Resources */,
+				ED947BC72699E47800310CBA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED947BB32699E47800310CBA /* PBXTargetDependency */,
+			);
+			name = MightyTabRefresh;
+			productName = MightyTabRefresh;
+			productReference = ED947B812699E47600310CBA /* MightyTabRefresh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED947B9B2699E47800310CBA /* MightyTabRefreshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED947BCB2699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefreshTests" */;
+			buildPhases = (
+				ED947B982699E47800310CBA /* Sources */,
+				ED947B992699E47800310CBA /* Frameworks */,
+				ED947B9A2699E47800310CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED947B9E2699E47800310CBA /* PBXTargetDependency */,
+			);
+			name = MightyTabRefreshTests;
+			productName = MightyTabRefreshTests;
+			productReference = ED947B9C2699E47800310CBA /* MightyTabRefreshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED947BA52699E47800310CBA /* MightyTabRefreshUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED947BCE2699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefreshUITests" */;
+			buildPhases = (
+				ED947BA22699E47800310CBA /* Sources */,
+				ED947BA32699E47800310CBA /* Frameworks */,
+				ED947BA42699E47800310CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED947BA82699E47800310CBA /* PBXTargetDependency */,
+			);
+			name = MightyTabRefreshUITests;
+			productName = MightyTabRefreshUITests;
+			productReference = ED947BA62699E47800310CBA /* MightyTabRefreshUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		ED947BAF2699E47800310CBA /* MightyTabRefresh Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED947BC42699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefresh Extension" */;
+			buildPhases = (
+				ED947BAC2699E47800310CBA /* Sources */,
+				ED947BAD2699E47800310CBA /* Frameworks */,
+				ED947BAE2699E47800310CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MightyTabRefresh Extension";
+			productName = "MightyTabRefresh Extension";
+			productReference = ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED947B792699E47600310CBA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					ED947B802699E47600310CBA = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					ED947B9B2699E47800310CBA = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = ED947B802699E47600310CBA;
+					};
+					ED947BA52699E47800310CBA = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = ED947B802699E47600310CBA;
+					};
+					ED947BAF2699E47800310CBA = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = ED947B7C2699E47600310CBA /* Build configuration list for PBXProject "MightyTabRefresh" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED947B782699E47600310CBA;
+			productRefGroup = ED947B822699E47600310CBA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED947B802699E47600310CBA /* MightyTabRefresh */,
+				ED947B9B2699E47800310CBA /* MightyTabRefreshTests */,
+				ED947BA52699E47800310CBA /* MightyTabRefreshUITests */,
+				ED947BAF2699E47800310CBA /* MightyTabRefresh Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED947B7F2699E47600310CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED947B8B2699E47600310CBA /* Icon.png in Resources */,
+				ED947B942699E47600310CBA /* Main.storyboard in Resources */,
+				ED947B8F2699E47600310CBA /* Script.js in Resources */,
+				ED947B892699E47600310CBA /* Main.html in Resources */,
+				ED947B962699E47800310CBA /* Assets.xcassets in Resources */,
+				ED947B8D2699E47600310CBA /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947B9A2699E47800310CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947BA42699E47800310CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947BAE2699E47800310CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */,
+				ED947BBD2699E47800310CBA /* ToolbarItemIcon.pdf in Resources */,
+				ED947BBB2699E47800310CBA /* script.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED947B7D2699E47600310CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED947B912699E47600310CBA /* ViewController.swift in Sources */,
+				ED947B852699E47600310CBA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947B982699E47800310CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947BA22699E47800310CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED947BAB2699E47800310CBA /* MightyTabRefreshUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED947BAC2699E47800310CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED947BB82699E47800310CBA /* SafariExtensionViewController.swift in Sources */,
+				ED947BB62699E47800310CBA /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED947B9E2699E47800310CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED947B802699E47600310CBA /* MightyTabRefresh */;
+			targetProxy = ED947B9D2699E47800310CBA /* PBXContainerItemProxy */;
+		};
+		ED947BA82699E47800310CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED947B802699E47600310CBA /* MightyTabRefresh */;
+			targetProxy = ED947BA72699E47800310CBA /* PBXContainerItemProxy */;
+		};
+		ED947BB32699E47800310CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED947BAF2699E47800310CBA /* MightyTabRefresh Extension */;
+			targetProxy = ED947BB22699E47800310CBA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED947B872699E47600310CBA /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED947B882699E47600310CBA /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		ED947B922699E47600310CBA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED947B932699E47600310CBA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED947BBF2699E47800310CBA /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED947BC22699E47800310CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED947BC32699E47800310CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		ED947BC52699E47800310CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MightyTabRefresh Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ED947BC62699E47800310CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MightyTabRefresh Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ED947BC92699E47800310CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MightyTabRefresh/MightyTabRefresh.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MightyTabRefresh/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleExecutable = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ED947BCA2699E47800310CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MightyTabRefresh/MightyTabRefresh.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MightyTabRefresh/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleExecutable = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ED947BCC2699E47800310CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefreshTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MightyTabRefresh.app/Contents/MacOS/MightyTabRefresh";
+			};
+			name = Debug;
+		};
+		ED947BCD2699E47800310CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefreshTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MightyTabRefresh.app/Contents/MacOS/MightyTabRefresh";
+			};
+			name = Release;
+		};
+		ED947BCF2699E47800310CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefreshUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MightyTabRefresh;
+			};
+			name = Debug;
+		};
+		ED947BD02699E47800310CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AC5986BBE6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefreshUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MightyTabRefresh;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED947B7C2699E47600310CBA /* Build configuration list for PBXProject "MightyTabRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED947BC22699E47800310CBA /* Debug */,
+				ED947BC32699E47800310CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED947BC42699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefresh Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED947BC52699E47800310CBA /* Debug */,
+				ED947BC62699E47800310CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED947BC82699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED947BC92699E47800310CBA /* Debug */,
+				ED947BCA2699E47800310CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED947BCB2699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefreshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED947BCC2699E47800310CBA /* Debug */,
+				ED947BCD2699E47800310CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED947BCE2699E47800310CBA /* Build configuration list for PBXNativeTarget "MightyTabRefreshUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED947BCF2699E47800310CBA /* Debug */,
+				ED947BD02699E47800310CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED947B792699E47600310CBA /* Project object */;
+}
