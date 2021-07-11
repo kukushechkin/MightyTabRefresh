@@ -20,6 +20,7 @@
 		ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947C4B269A000800310CBA /* ExtensionController.swift */; };
 		ED947C50269B051200310CBA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ED947C4F269B051200310CBA /* .gitignore */; };
 		EDD142C4269B07FD0099470F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C3269B07FD0099470F /* .github */; };
+		EDD142C6269B08B60099470F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C5269B08B60099470F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		ED947C4E269B031100310CBA /* ExtensionSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExtensionSettings; sourceTree = "<group>"; };
 		ED947C4F269B051200310CBA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EDD142C3269B07FD0099470F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
+		EDD142C5269B08B60099470F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		ED947B782699E47600310CBA = {
 			isa = PBXGroup;
 			children = (
+				EDD142C5269B08B60099470F /* README.md */,
 				EDD142C3269B07FD0099470F /* .github */,
 				ED947C4F269B051200310CBA /* .gitignore */,
 				ED947C4E269B031100310CBA /* ExtensionSettings */,
@@ -318,6 +321,7 @@
 			files = (
 				EDD142C4269B07FD0099470F /* .github in Resources */,
 				ED947C50269B051200310CBA /* .gitignore in Resources */,
+				EDD142C6269B08B60099470F /* README.md in Resources */,
 				ED947B962699E47800310CBA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
