@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 import SafariServices
 import os.log
+import ExtensionSettings
 
 internal class ExtensionController: ObservableObject {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyRefresh", category: "ExtensionController")
@@ -21,9 +22,15 @@ internal class ExtensionController: ObservableObject {
     private let defaults = UserDefaults(suiteName: "com.kukushechkin.MightyRefresh.ExtensionController")
 
     @Published var enabled: Bool
+    @Published var settings: ExtensionSettings
     
     internal init() {
         self.enabled = defaults?.bool(forKey: self.lastKnownExtensionStateKey) ?? false
+        // Hardcode some test settings
+        self.settings = ExtensionSettings(rules: [
+            Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
+            Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
+        ])
         self.updateState()
 
     }
@@ -49,4 +56,20 @@ internal class ExtensionController: ObservableObject {
         }
     }
     
+    internal func updateSettings() {
+        // TODO: log rules
+        os_log(.info, log: self.log, "Will send settings to Safari App Extension")
+        guard let encodedSettings = try? self.settings.encode() else {
+            os_log(.error, log: self.log, "Failed to encode settings to json")
+            return
+        }
+        SFSafariApplication.dispatchMessage(withName: ExtensionSettings.settingsMessageName,
+                                            toExtensionWithIdentifier: self.extensionBundleIdentifier,
+                                            userInfo: [ExtensionSettings.settingsMessageKey: encodedSettings]) { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                os_log(.error, log: self.log, "Error sending settings to Safari App Extension: %s", error.localizedDescription)
+            }
+        }
+    }
 }
