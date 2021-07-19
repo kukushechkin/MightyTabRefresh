@@ -25,6 +25,12 @@ struct ContentView: View {
                 self.extensionController.updateState()
             }
             .padding()
+            Spacer()
+            Button("Update settigns") {
+                self.extensionController.updateSettings()
+            }
+            .padding()
+
         }
     }
 }
