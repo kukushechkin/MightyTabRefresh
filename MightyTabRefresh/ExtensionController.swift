@@ -36,9 +36,12 @@ internal class ExtensionController: ObservableObject {
     }
     
     internal func updateState() {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { (state, error) in
+        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { [weak self] (state, error) in
+            guard let self = self else { return }
             guard let unwrappedState = state, error == nil else {
-                self.enabled = false
+                DispatchQueue.main.async {
+                    self.enabled = false
+                }
                 os_log(.error, log: self.log, "Safari App Extension is not enabled: %d, %s", state?.isEnabled ?? false, error?.localizedDescription ?? "")
                 return
             }
