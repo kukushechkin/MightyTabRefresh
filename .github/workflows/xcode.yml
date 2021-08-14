@@ -43,6 +43,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: xcodebuild build -configuration Release
+    - name: Test
+      run: xcodebuild test -configuration Debug -scheme "MightyTabRefresh"
     - name: Clean up keychain and provisioning profile
       if: ${{ always() }}
       run: |
