@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED68F2DB26C80C2400B43BC8 /* Sequence+indexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */; };
+		ED68F2DE26C80D5000B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */; };
+		ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */; };
 		ED947B852699E47600310CBA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947B842699E47600310CBA /* App.swift */; };
 		ED947B962699E47800310CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED947B952699E47800310CBA /* Assets.xcassets */; };
 		ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */; };
@@ -23,8 +26,6 @@
 		EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A426A620EA001BE768 /* ControlsView.swift */; };
 		EDD142C4269B07FD0099470F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C3269B07FD0099470F /* .github */; };
 		EDD142C6269B08B60099470F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C5269B08B60099470F /* README.md */; };
-		EDD142C9269B1C240099470F /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = EDD142C8269B1C240099470F /* ExtensionSettings */; };
-		EDD142CB269B22720099470F /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = EDD142CA269B22720099470F /* ExtensionSettings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+indexed.swift"; sourceTree = "<group>"; };
 		ED947B812699E47600310CBA /* MightyTabRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyTabRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED947B842699E47600310CBA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		ED947B952699E47800310CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD142C9269B1C240099470F /* ExtensionSettings in Frameworks */,
+				ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,13 +120,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD142CB269B22720099470F /* ExtensionSettings in Frameworks */,
+				ED68F2DE26C80D5000B43BC8 /* ExtensionSettings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED68F2D926C80C1100B43BC8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		ED947B782699E47600310CBA = {
 			isa = PBXGroup;
 			children = (
@@ -156,9 +166,10 @@
 			isa = PBXGroup;
 			children = (
 				ED947BD12699E68A00310CBA /* Info.plist */,
-				ED947B842699E47600310CBA /* App.swift */,
 				ED947B952699E47800310CBA /* Assets.xcassets */,
 				ED947B972699E47800310CBA /* MightyTabRefresh.entitlements */,
+				ED68F2D926C80C1100B43BC8 /* Categories */,
+				ED947B842699E47600310CBA /* App.swift */,
 				ED947C4B269A000800310CBA /* ExtensionController.swift */,
 				EDC341A226A620AA001BE768 /* SettingsView.swift */,
 				EDC341A426A620EA001BE768 /* ControlsView.swift */,
@@ -229,7 +240,7 @@
 			);
 			name = MightyTabRefresh;
 			packageProductDependencies = (
-				EDD142C8269B1C240099470F /* ExtensionSettings */,
+				ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */,
 			);
 			productName = MightyTabRefresh;
 			productReference = ED947B812699E47600310CBA /* MightyTabRefresh.app */;
@@ -285,7 +296,7 @@
 			);
 			name = "MightyTabRefresh Extension";
 			packageProductDependencies = (
-				EDD142CA269B22720099470F /* ExtensionSettings */,
+				ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */,
 			);
 			productName = "MightyTabRefresh Extension";
 			productReference = ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */;
@@ -384,6 +395,7 @@
 				EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */,
 				EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */,
 				ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */,
+				ED68F2DB26C80C2400B43BC8 /* Sequence+indexed.swift in Sources */,
 				ED947B852699E47600310CBA /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -837,11 +849,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EDD142C8269B1C240099470F /* ExtensionSettings */ = {
+		ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ExtensionSettings;
 		};
-		EDD142CA269B22720099470F /* ExtensionSettings */ = {
+		ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ExtensionSettings;
 		};

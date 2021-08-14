@@ -9,12 +9,6 @@ import Foundation
 import SwiftUI
 import ExtensionSettings
 
-extension Sequence {
-    func indexed() -> Array<(offset: Int, element: Element)> {
-        return Array(enumerated())
-    }
-}
-
 struct RuleEditorView: View {
     @Binding var rule: Rule
     
