@@ -1,11 +1,13 @@
 import Foundation
 
 public struct Rule: Codable {
+    public let id: UUID
     public let enabled: Bool
-    public let pattern: String
+    public var pattern: String
     public let refreshInterval: TimeInterval
     
     public init(enabled: Bool, pattern: String, refreshInterval: TimeInterval) {
+        self.id = UUID()
         self.enabled = enabled
         self.pattern = pattern
         self.refreshInterval = refreshInterval
@@ -17,7 +19,7 @@ public struct ExtensionSettings: Codable {
     public static let settingsMessageName = "com.kukushechkin.MightyTabRefresh.settingsMessage"
     public static let settingsMessageKey = "com.kukushechkin.MightyTabRefresh.settings"
     
-    public let rules: [Rule]
+    public var rules: [Rule] = []
     
     public init(rules: [Rule]) {
         self.rules = rules

@@ -12,13 +12,18 @@ import SafariServices
 import os.log
 import ExtensionSettings
 
-internal class ExtensionController: ObservableObject {
+internal protocol ExtensionControllerProtocol: ObservableObject {
+    var settings: ExtensionSettings { get set }
+}
+
+internal class ExtensionController: ExtensionControllerProtocol {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyRefresh", category: "ExtensionController")
     private let statusRefreshQueue = DispatchQueue(label: "com.kukushechkin.MightyRefresh.extensionCheckQueue")
     
     private let extensionBundleIdentifier = "com.kukushechkin.MightyTabRefresh.Extension"
     
     private let lastKnownExtensionStateKey = "lastKnownExtensionState"
+    private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
     private let defaults = UserDefaults(suiteName: "com.kukushechkin.MightyRefresh.ExtensionController")
 
     @Published var enabled: Bool
@@ -31,8 +36,9 @@ internal class ExtensionController: ObservableObject {
             Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
             Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
         ])
+        
         self.updateState()
-
+        self.updateSettings()
     }
     
     internal func updateState() {

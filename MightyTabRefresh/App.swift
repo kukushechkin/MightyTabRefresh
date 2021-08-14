@@ -12,25 +12,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            SettingsView(extensionSettings: self.$extensionController.settings)
             Spacer()
-            if self.extensionController.enabled {
-                Text("Extension is activated, everything is fine")
-            } else {
-                Button("Activate Safari Extension") {
-                    self.extensionController.openSafariPrefs()
-                }
-            }
-            Spacer()
-            Button("Refresh") {
-                self.extensionController.updateState()
-            }
-            .padding()
-            Spacer()
-            Button("Update settigns") {
-                self.extensionController.updateSettings()
-            }
-            .padding()
-
+            ControlsView()
+                .environmentObject(self.extensionController)
         }
     }
 }

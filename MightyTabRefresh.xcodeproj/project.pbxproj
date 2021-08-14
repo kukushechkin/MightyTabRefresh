@@ -19,6 +19,8 @@
 		ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */; };
 		ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947C4B269A000800310CBA /* ExtensionController.swift */; };
 		ED947C50269B051200310CBA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ED947C4F269B051200310CBA /* .gitignore */; };
+		EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A226A620AA001BE768 /* SettingsView.swift */; };
+		EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A426A620EA001BE768 /* ControlsView.swift */; };
 		EDD142C4269B07FD0099470F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C3269B07FD0099470F /* .github */; };
 		EDD142C6269B08B60099470F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C5269B08B60099470F /* README.md */; };
 		EDD142C9269B1C240099470F /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = EDD142C8269B1C240099470F /* ExtensionSettings */; };
@@ -83,6 +85,8 @@
 		ED947C4B269A000800310CBA /* ExtensionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionController.swift; sourceTree = "<group>"; };
 		ED947C4E269B031100310CBA /* ExtensionSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExtensionSettings; sourceTree = "<group>"; };
 		ED947C4F269B051200310CBA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EDC341A226A620AA001BE768 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EDC341A426A620EA001BE768 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		EDD142C3269B07FD0099470F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		EDD142C5269B08B60099470F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +160,8 @@
 				ED947B952699E47800310CBA /* Assets.xcassets */,
 				ED947B972699E47800310CBA /* MightyTabRefresh.entitlements */,
 				ED947C4B269A000800310CBA /* ExtensionController.swift */,
+				EDC341A226A620AA001BE768 /* SettingsView.swift */,
+				EDC341A426A620EA001BE768 /* ControlsView.swift */,
 			);
 			path = MightyTabRefresh;
 			sourceTree = "<group>";
@@ -375,6 +381,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */,
+				EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */,
 				ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */,
 				ED947B852699E47600310CBA /* App.swift in Sources */,
 			);
