@@ -19,7 +19,7 @@ struct DeleteItemButtonView: View {
             Label("", systemImage: "minus")
                 .foregroundColor(.red)
         }
-        .buttonStyle(.borderless)
+        .buttonStyle(BorderlessButtonStyle())
     }
 }
 
