@@ -9,13 +9,31 @@ import Foundation
 import SwiftUI
 import ExtensionSettings
 
+struct DeleteItemButtonView: View {
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            self.action()
+        } label: {
+            Label("", systemImage: "minus")
+                .foregroundColor(.red)
+        }
+        .buttonStyle(.borderless)
+    }
+}
+
 struct RuleEditorView: View {
     @Binding var rule: Rule
     
     var body: some View {
         HStack {
-            Text("Pattern:")
-            TextField("rule", text: $rule.pattern)
+            CheckBoxView(checked: $rule.enabled)
+            Group {
+                TextField("rule", text: $rule.pattern)
+                TextField("interval", value: $rule.refreshInterval, formatter: NumberFormatter())
+            }
+            .disabled(!rule.enabled)
         }
     }
 }
@@ -25,14 +43,28 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                Text("Settings:")
-                Divider()
+            List {
                 ForEach(self.extensionSettings.rules.indexed(), id: \.1.id) { index, rule in
-                    RuleEditorView(rule: self.$extensionSettings.rules[index])
+                    HStack {
+                        RuleEditorView(rule: self.$extensionSettings.rules[index])
+                        DeleteItemButtonView {
+                            self.delete(at: IndexSet(integer: index))
+                        }
+                    }
                 }
             }
+            .toolbar {
+                Button(action: add) { Label("", systemImage: "plus") }
+            }
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        self.extensionSettings.rules.remove(atOffsets: offsets)
+    }
+    
+    func add() {
+        self.extensionSettings.rules.append(Rule.defaultRule())
     }
 }
 
@@ -42,6 +74,7 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
             Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
             Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
+            Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
         ])))
     }
 }

@@ -10,6 +10,7 @@
 		ED68F2DB26C80C2400B43BC8 /* Sequence+indexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */; };
 		ED68F2DE26C80D5000B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */; };
 		ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */; };
+		ED68F2E226C9090C00B43BC8 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */; };
 		ED947B852699E47600310CBA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947B842699E47600310CBA /* App.swift */; };
 		ED947B962699E47800310CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED947B952699E47800310CBA /* Assets.xcassets */; };
 		ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+indexed.swift"; sourceTree = "<group>"; };
+		ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		ED947B812699E47600310CBA /* MightyTabRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyTabRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED947B842699E47600310CBA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		ED947B952699E47800310CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */,
+				ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */,
+				ED68F2E226C9090C00B43BC8 /* CheckBoxView.swift in Sources */,
 				EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */,
 				ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */,
 				ED68F2DB26C80C2400B43BC8 /* Sequence+indexed.swift in Sources */,

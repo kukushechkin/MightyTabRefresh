@@ -2,15 +2,19 @@ import Foundation
 
 public struct Rule: Codable {
     public let id: UUID
-    public let enabled: Bool
+    public var enabled: Bool
     public var pattern: String
-    public let refreshInterval: TimeInterval
+    public var refreshInterval: TimeInterval
     
     public init(enabled: Bool, pattern: String, refreshInterval: TimeInterval) {
         self.id = UUID()
         self.enabled = enabled
         self.pattern = pattern
         self.refreshInterval = refreshInterval
+    }
+    
+    public static func defaultRule() -> Rule {
+        Rule(enabled: false, pattern: "", refreshInterval: 60.0)
     }
 }
 
