@@ -16,8 +16,9 @@ struct DeleteItemButtonView: View {
         Button {
             self.action()
         } label: {
-            Label("", systemImage: "minus")
-                .foregroundColor(.red)
+            Label("", systemImage: "minus.circle.fill")
+                .labelStyle(IconOnlyLabelStyle())
+                .foregroundColor(Color(NSColor(named: "DeleteButtonLabelColor")!))
         }
         .buttonStyle(BorderlessButtonStyle())
     }
@@ -71,10 +72,19 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
-            Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
-            Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-            Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
-        ])))
+        VStack {
+            SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
+                Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
+                Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
+            ])))
+                .environment(\.colorScheme, .light)
+            SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
+                Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
+                Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
+            ])))
+                .environment(\.colorScheme, .dark)
+        }
     }
 }
