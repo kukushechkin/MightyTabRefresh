@@ -12,9 +12,18 @@ Sometimes web services have aggressive activity tracking and force you to login 
 
 # TODO:
 
-* App:
+### App:
 * update settings on edit finish
 * nice pattern editor
+* slider for interval
+* other small TODOs in code
+* tests
 
-* Extension:
+### Extension:
 * actually fire timer and update the page
+* blue icon in toolbar if there is a rule matching this page
+* open app on toolbar item click, if there is no rule — make a new one with the host right away
+* other small TODOs in code
+* tests
+
+
