@@ -11,6 +11,7 @@
 		ED68F2DE26C80D5000B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */; };
 		ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */; };
 		ED68F2E226C9090C00B43BC8 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */; };
+		ED68F2F326CE940D00B43BC8 /* ReloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2F226CE940D00B43BC8 /* ReloadController.swift */; };
 		ED947B852699E47600310CBA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947B842699E47600310CBA /* App.swift */; };
 		ED947B962699E47800310CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED947B952699E47800310CBA /* Assets.xcassets */; };
 		ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */; };
@@ -18,7 +19,7 @@
 		ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ED947BB62699E47800310CBA /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */; };
 		ED947BB82699E47800310CBA /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */; };
-		ED947BBB2699E47800310CBA /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBA2699E47800310CBA /* script.js */; };
+		ED947BBB2699E47800310CBA /* MightyTabRefreshInjectedScript.js in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBA2699E47800310CBA /* MightyTabRefreshInjectedScript.js */; };
 		ED947BBD2699E47800310CBA /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */; };
 		ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */; };
 		ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947C4B269A000800310CBA /* ExtensionController.swift */; };
@@ -70,6 +71,8 @@
 /* Begin PBXFileReference section */
 		ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+indexed.swift"; sourceTree = "<group>"; };
 		ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		ED68F2F126CC578A00B43BC8 /* MightyTabRefresh Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MightyTabRefresh Extension.entitlements"; sourceTree = "<group>"; };
+		ED68F2F226CE940D00B43BC8 /* ReloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadController.swift; sourceTree = "<group>"; };
 		ED947B812699E47600310CBA /* MightyTabRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyTabRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED947B842699E47600310CBA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		ED947B952699E47800310CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,7 +84,7 @@
 		ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MightyTabRefresh Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
-		ED947BBA2699E47800310CBA /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		ED947BBA2699E47800310CBA /* MightyTabRefreshInjectedScript.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = MightyTabRefreshInjectedScript.js; sourceTree = "<group>"; };
 		ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		ED947BBF2699E47800310CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		ED947BC12699E47800310CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,11 +202,13 @@
 		ED947BB42699E47800310CBA /* MightyTabRefresh Extension */ = {
 			isa = PBXGroup;
 			children = (
+				ED68F2F126CC578A00B43BC8 /* MightyTabRefresh Extension.entitlements */,
 				ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */,
 				ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */,
 				ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */,
 				ED947BC12699E47800310CBA /* Info.plist */,
 				ED947BB92699E47800310CBA /* Resources */,
+				ED68F2F226CE940D00B43BC8 /* ReloadController.swift */,
 			);
 			path = "MightyTabRefresh Extension";
 			sourceTree = "<group>";
@@ -211,7 +216,7 @@
 		ED947BB92699E47800310CBA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ED947BBA2699E47800310CBA /* script.js */,
+				ED947BBA2699E47800310CBA /* MightyTabRefreshInjectedScript.js */,
 				ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */,
 			);
 			path = Resources;
@@ -384,7 +389,7 @@
 			files = (
 				ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */,
 				ED947BBD2699E47800310CBA /* ToolbarItemIcon.pdf in Resources */,
-				ED947BBB2699E47800310CBA /* script.js in Resources */,
+				ED947BBB2699E47800310CBA /* MightyTabRefreshInjectedScript.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED68F2F326CE940D00B43BC8 /* ReloadController.swift in Sources */,
 				ED947BB82699E47800310CBA /* SafariExtensionViewController.swift in Sources */,
 				ED947BB62699E47800310CBA /* SafariExtensionHandler.swift in Sources */,
 			);
@@ -579,6 +585,7 @@
 		ED947BC52699E47800310CBA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "MightyTabRefresh Extension/MightyTabRefresh Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AC5986BBE6;
@@ -588,6 +595,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MightyTabRefresh Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_CFBundleExecutable = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_CFBundleName = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,6 +616,7 @@
 		ED947BC62699E47800310CBA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "MightyTabRefresh Extension/MightyTabRefresh Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AC5986BBE6;
@@ -615,6 +626,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MightyTabRefresh Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_CFBundleExecutable = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_CFBundleName = "MightyTabRefresh Extension";
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

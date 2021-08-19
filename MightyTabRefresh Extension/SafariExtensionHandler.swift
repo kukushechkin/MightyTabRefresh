@@ -7,52 +7,103 @@
 
 import SafariServices
 import os.log
+
 import ExtensionSettings
 
+// TODO: use static singletone to keep settings and timers
+
 class SafariExtensionHandler: SFSafariExtensionHandler {
-    private let log = OSLog(subsystem: "com.kukushechkin.MightyRefresh", category: "SafariExtensionHandler")
-    private var settings: ExtensionSettings?
+    static private var reloadController: ReloadController?
+    
+    private let id = UUID()
+    private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "SafariExtensionHandler")
+    private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
+        
+    private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings" // TODO: share with app
+    
+    override init() {
+        super.init()
+        os_log(.debug, log: self.log, "[%{public}s]: init", self.id.uuidString)
+        
+        if Self.reloadController != nil {
+            os_log(.debug, log: self.log, "[%{public}s]: reloadController already exists", self.id.uuidString)
+            return
+        }
+        Self.reloadController = ReloadController()
+        
+        guard let defaults = self.defaults else {
+            os_log(.debug, log: self.log, "[%{public}s]: No defaults, bail out", self.id.uuidString)
+            return
+        }
+        guard let persistentData = defaults.object(forKey: self.lastKnownExtensionSettingsKey) else {
+            os_log(.debug, log: self.log, "[%{public}s]: No data in defaults, bail out", self.id.uuidString)
+            return
+        }
+        guard let settings = ExtensionSettings(from: persistentData) else {
+            os_log(.debug, log: self.log, "[%{public}s]: No settings, bail out", self.id.uuidString)
+            return
+        }
+        
+        os_log(.debug, log: self.log, "[%{public}s]: will set initial reloadController settings", self.id.uuidString)
+        Self.reloadController?.settings = settings
+    }
+    
+    deinit {
+        os_log(.debug, log: self.log, "[%{public}s]: dealloc", self.id.uuidString)
+    }
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
+        os_log(.debug, log: self.log, "[%{public}s]: Got event from the inject script: %{public}s", self.id.uuidString, messageName)
+
+        weak var weakself = self
         page.getPropertiesWithCompletionHandler { properties in
-            NSLog("The extension received a message (\(messageName)) from a script injected into (\(String(describing: properties?.url))) with userInfo (\(userInfo ?? [:]))")
+            guard let self = weakself else { return }
+            os_log(.debug, log: self.log, "[%{public}s]: Injected script page with url %{public}s is now active", self.id.uuidString, properties?.url?.host ?? "<none>")
+            if messageName == ExtensionSettings.scriptBecameActiveMessageKey {
+                os_log(.debug, log: self.log, "[%{public}s]: will add page for %{public}s", self.id.uuidString, properties?.url?.host ?? "<none>")
+                Self.reloadController?.add(page: page)
+            }
+                        
+            // TODO: remove page from reloadController
         }
     }
 
     override func messageReceivedFromContainingApp(withName messageName: String, userInfo: [String : Any]? = nil) {
-        os_log(.debug, log: self.log, "The extension received a message %s", messageName)
+        os_log(.debug, log: self.log, "[%{public}s]: The extension received a message %s", self.id.uuidString, messageName)
         guard let userInfo = userInfo else {
-            os_log(.debug, log: self.log, "Empty userInfo, ignore")
+            os_log(.debug, log: self.log, "[%{public}s]: Empty userInfo, ignore", self.id.uuidString)
             return
         }
         if messageName != ExtensionSettings.settingsMessageName {
-            os_log(.debug, log: self.log, "Message is not %{public}s, ignore", ExtensionSettings.settingsMessageName)
+            os_log(.debug, log: self.log, "[%{public}s]: Message is not %{public}s, ignore", self.id.uuidString, ExtensionSettings.settingsMessageName)
             return
         }
         if !userInfo.keys.contains(ExtensionSettings.settingsMessageKey) {
-            os_log(.debug, log: self.log, "Message does not contain %{public}s key, ignore", ExtensionSettings.settingsMessageKey)
+            os_log(.debug, log: self.log, "[%{public}s]: Message does not contain %{public}s key, ignore", self.id.uuidString, ExtensionSettings.settingsMessageKey)
             return
         }
         guard let settingsJson = userInfo[ExtensionSettings.settingsMessageKey] else {
-            os_log(.info, log: self.log, "empty %{public}s, ignore", ExtensionSettings.settingsMessageKey)
+            os_log(.info, log: self.log, "[%{public}s]: empty %{public}s, ignore", self.id.uuidString, ExtensionSettings.settingsMessageKey)
             return
         }
-        
-        os_log(.debug, log: self.log, "Will try to decode settings: %{public}s", userInfo[ExtensionSettings.settingsMessageKey].debugDescription)
+
+        os_log(.debug, log: self.log, "[%{public}s]: Will try to decode settings: %{public}s", self.id.uuidString, userInfo[ExtensionSettings.settingsMessageKey].debugDescription)
         guard let newSettings = ExtensionSettings(from: settingsJson) else {
-            os_log(.debug, log: self.log, "Failed to decode ExtensionSettings from %{public}s, ignore", ExtensionSettings.settingsMessageKey)
+            os_log(.debug, log: self.log, "[%{public}s]: Failed to decode ExtensionSettings from %{public}s, ignore", self.id.uuidString, ExtensionSettings.settingsMessageKey)
             return
         }
-        
+
         // TODO: settings description
-        os_log(.debug, log: self.log, "Got new settings")
-        self.settings = newSettings
+        os_log(.debug, log: self.log, "[%{public}s]: Got new settings", self.id.uuidString)
+        Self.reloadController?.settings = newSettings
     }
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        // This method will be called when your toolbar item is clicked.
-        NSLog("The extension's toolbar item was clicked")
+        // TODO: open App
+        
+//        self.activePages.forEach { host, _ in
+//            os_log(.debug, log: self.log, "another active page: %{public}s", host)
+//        }
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
@@ -63,5 +114,4 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
-
 }

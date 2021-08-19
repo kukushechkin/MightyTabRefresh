@@ -21,7 +21,10 @@ public struct Rule: Codable {
 /// Used to transfer urls and refresh times from the app to the extension.
 public struct ExtensionSettings: Codable {
     public static let settingsMessageName = "com.kukushechkin.MightyTabRefresh.settingsMessage"
-    public static let settingsMessageKey = "com.kukushechkin.MightyTabRefresh.settings"
+    public static let settingsMessageKey = "com.kukushechkin.MightyTabRefresh.settingsMessage.settings"
+    public static let reloadCommandMessageName = "com.kukushechkin.MightyTabRefresh.reloadMessage"
+    public static let reloadCommandMessageKey = "com.kukushechkin.MightyTabRefresh.reloadMessage.hosts"
+    public static let scriptBecameActiveMessageKey = "com.kukushechkin.MightyTabRefresh.scriptBecameAvailable"
     
     public var rules: [Rule] = []
     

@@ -17,25 +17,33 @@ internal protocol ExtensionControllerProtocol: ObservableObject {
 }
 
 internal class ExtensionController: ExtensionControllerProtocol {
-    private let log = OSLog(subsystem: "com.kukushechkin.MightyRefresh", category: "ExtensionController")
-    private let statusRefreshQueue = DispatchQueue(label: "com.kukushechkin.MightyRefresh.extensionCheckQueue")
+    private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ExtensionController")
+    private let statusRefreshQueue = DispatchQueue(label: "com.kukushechkin.MightyTabRefresh.extensionCheckQueue")
     
+    // TODO: move all identifiers to a shared package
     private let extensionBundleIdentifier = "com.kukushechkin.MightyTabRefresh.Extension"
     
     private let lastKnownExtensionStateKey = "lastKnownExtensionState"
     private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
-    private let defaults = UserDefaults(suiteName: "com.kukushechkin.MightyRefresh.ExtensionController")
+    private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
 
     @Published var enabled: Bool
     @Published var settings: ExtensionSettings
     
     internal init() {
         self.enabled = defaults?.bool(forKey: self.lastKnownExtensionStateKey) ?? false
-        // Hardcode some test settings
-        self.settings = ExtensionSettings(rules: [
-            Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
-            Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-        ])
+            
+        if let persistentData = defaults?.object(forKey: self.lastKnownExtensionSettingsKey),
+           let settings = ExtensionSettings(from: persistentData) {
+            self.settings = settings
+        } else {
+            // Hardcode some test settings if there is none
+            self.settings = ExtensionSettings(rules: [
+                Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
+                Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
+                Rule(enabled: false, pattern: "google.com", refreshInterval: 60.0),
+            ])
+        }
         
         self.updateState()
         self.updateSettings()
@@ -61,12 +69,17 @@ internal class ExtensionController: ExtensionControllerProtocol {
     
     internal func openSafariPrefs() {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            // close app?
+            // TODO: close app?
         }
     }
     
     internal func updateSettings() {
-        // TODO: log rules
+        do {
+            try self.defaults?.set(self.settings.encode(), forKey: self.lastKnownExtensionSettingsKey)
+        } catch {
+            os_log(.error, log: self.log, "error saving settings: %{public}s", error.localizedDescription)
+        }
+        
         os_log(.info, log: self.log, "Will send settings to Safari App Extension")
         guard let encodedSettings = try? self.settings.encode() else {
             os_log(.error, log: self.log, "Failed to encode settings to json")

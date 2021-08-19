@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>Script</key>
-				<string>script.js</string>
+				<string>MightyTabRefreshInjectedScript.js</string>
 			</dict>
 		</array>
 		<key>SFSafariToolbarItem</key>
@@ -24,16 +24,12 @@
 			<key>Image</key>
 			<string>ToolbarItemIcon.pdf</string>
 			<key>Label</key>
-			<string>Your Button</string>
+			<string>Manage Refresh Rules</string>
 		</dict>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
-			<key>Allowed Domains</key>
-			<array>
-				<string>example.com</string>
-			</array>
 			<key>Level</key>
-			<string>Some</string>
+			<string>All</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableDescription</key>
