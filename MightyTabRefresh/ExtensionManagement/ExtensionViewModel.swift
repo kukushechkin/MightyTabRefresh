@@ -14,7 +14,6 @@ import ExtensionSettings
 internal class ExtensionViewModel: ObservableObject {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ExtensionViewModel")
     private let statusRefreshQueue = DispatchQueue(label: "com.kukushechkin.MightyTabRefresh.extensionCheckQueue")
-//    private let schedule: Cancellable?
     
     private let lastKnownExtensionStateKey = "lastKnownExtensionState"
     private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
@@ -41,15 +40,22 @@ internal class ExtensionViewModel: ObservableObject {
             ])
         }
         
+        // Will ask Safari for a state update
         self.updateState()
-        // self.updateSettings()
         
-//        self.schedule = self.statusRefreshQueue.schedule(after: DispatchQueue.SchedulerTimeType(DispatchTime(uptimeNanoseconds: 0)),
-//                                                         interval: DispatchQueue.SchedulerTimeType.Stride(floatLiteral: 1.0),
-//                                                         tolerance: 0.1,
-//                                                         options: nil) { [weak self] in
-//            self?.updateState()
-//        }
+        self.observeItems(propertyToObserve: self.$settings)
+    }
+    
+    // TODO: move to a category/whatever
+    // https://stackoverflow.com/questions/63479425/observing-a-published-var-from-another-object
+    var itemObserver: AnyCancellable?
+    func observeItems<P: Publisher>(propertyToObserve: P) where P.Output == ExtensionSettings, P.Failure == Never {
+       itemObserver = propertyToObserve
+            .throttle(for: 0.5, scheduler: RunLoop.main, latest: true)
+            .sink {_ in
+                os_log(.debug, log: self.log, "observed settings update")
+                self.updateSettings()
+            }
     }
     
     internal func updateState() {
@@ -70,13 +76,17 @@ internal class ExtensionViewModel: ObservableObject {
         } catch {
             os_log(.error, log: self.log, "error saving settings: %{public}s", error.localizedDescription)
         }
+        os_log(.info, log: self.log, "Saved new settings in shared defaults")
         
-        os_log(.info, log: self.log, "Will send settings to Safari App Extension")
-        guard let encodedSettings = try? self.settings.encode() else {
-            os_log(.error, log: self.log, "Failed to encode settings to json")
-            return
-        }
-        self.extensionController.sendSettingsToExtension(name: ExtensionSettings.settingsMessageName,
-                                                         settings: [ExtensionSettings.settingsMessageKey: encodedSettings])
+        // This will remove focus from the app and activate Safari which is not a good experience during editing
+        // Relying only on UserDefaults to transfer settings
+        
+//        os_log(.info, log: self.log, "Will send settings to Safari App Extension")
+//        guard let encodedSettings = try? self.settings.encode() else {
+//            os_log(.error, log: self.log, "Failed to encode settings to json")
+//            return
+//        }
+//        self.extensionController.sendSettingsToExtension(name: ExtensionSettings.settingsMessageName,
+//                                                         settings: [ExtensionSettings.settingsMessageKey: encodedSettings])
     }
 }

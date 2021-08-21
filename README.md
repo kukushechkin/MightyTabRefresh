@@ -13,7 +13,6 @@ Sometimes web services have aggressive activity tracking and force you to login 
 ## TODO:
 
 ### App:
-* update settings on edit finish (=> no need in send settings button)
 * SettingsView directly changes .rules list and crashing on removing last rule, refactor this
 * app icon
 * pattern editor (rename for domain for now?)

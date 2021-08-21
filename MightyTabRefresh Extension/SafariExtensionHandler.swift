@@ -7,8 +7,25 @@
 
 import SafariServices
 import os.log
+import Combine
 
 import ExtensionSettings
+
+let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
+
+extension UserDefaults {
+    @objc var lastKnownExtensionSettings: Any? {
+        get {
+            if let object = object(forKey: lastKnownExtensionSettingsKey) {
+                return ExtensionSettings(from: object)
+            }
+            return nil
+        }
+        set {
+            self.set(newValue, forKey: lastKnownExtensionSettingsKey)
+        }
+    }
+}
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     static private var reloadController: ReloadController?
@@ -16,8 +33,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     private let id = UUID()
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "SafariExtensionHandler")
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
-        
-    private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
+    private var subscriptions = Set<AnyCancellable>()
     
     override init() {
         super.init()
@@ -29,21 +45,16 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
         Self.reloadController = ReloadController()
         
-        guard let defaults = self.defaults else {
-            os_log(.debug, log: self.log, "[%{public}s]: No defaults, bail out", self.id.uuidString)
-            return
-        }
-        guard let persistentData = defaults.object(forKey: self.lastKnownExtensionSettingsKey) else {
-            os_log(.debug, log: self.log, "[%{public}s]: No data in defaults, bail out", self.id.uuidString)
-            return
-        }
-        guard let settings = ExtensionSettings(from: persistentData) else {
-            os_log(.debug, log: self.log, "[%{public}s]: No settings, bail out", self.id.uuidString)
-            return
-        }
-        
-        os_log(.debug, log: self.log, "[%{public}s]: will set initial reloadController settings", self.id.uuidString)
-        Self.reloadController?.settings = settings
+        self.defaults?
+            .publisher(for: \.lastKnownExtensionSettings)
+            .sink { newSettings in
+                os_log(.debug, log: self.log, "[%{public}s]: observed new settings", self.id.uuidString)
+                if let settings = newSettings as? ExtensionSettings {
+                    os_log(.debug, log: self.log, "[%{public}s]: decoded new settings: %s", self.id.uuidString, settings.rules.debugDescription)
+                    Self.reloadController?.settings = settings
+                }
+            }
+            .store(in: &subscriptions)
     }
     
     deinit {
@@ -65,32 +76,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func messageReceivedFromContainingApp(withName messageName: String, userInfo: [String : Any]? = nil) {
-        os_log(.debug, log: self.log, "[%{public}s]: The extension received a message %s", self.id.uuidString, messageName)
-        guard let userInfo = userInfo else {
-            os_log(.debug, log: self.log, "[%{public}s]: Empty userInfo, ignore", self.id.uuidString)
-            return
-        }
-        if messageName != ExtensionSettings.settingsMessageName {
-            os_log(.debug, log: self.log, "[%{public}s]: Message is not %{public}s, ignore", self.id.uuidString, ExtensionSettings.settingsMessageName)
-            return
-        }
-        if !userInfo.keys.contains(ExtensionSettings.settingsMessageKey) {
-            os_log(.debug, log: self.log, "[%{public}s]: Message does not contain %{public}s key, ignore", self.id.uuidString, ExtensionSettings.settingsMessageKey)
-            return
-        }
-        guard let settingsJson = userInfo[ExtensionSettings.settingsMessageKey] else {
-            os_log(.info, log: self.log, "[%{public}s]: empty %{public}s, ignore", self.id.uuidString, ExtensionSettings.settingsMessageKey)
-            return
-        }
-
-        os_log(.debug, log: self.log, "[%{public}s]: Will try to decode settings: %{public}s", self.id.uuidString, userInfo[ExtensionSettings.settingsMessageKey].debugDescription)
-        guard let newSettings = ExtensionSettings(from: settingsJson) else {
-            os_log(.debug, log: self.log, "[%{public}s]: Failed to decode ExtensionSettings from %{public}s, ignore", self.id.uuidString, ExtensionSettings.settingsMessageKey)
-            return
-        }
-
-        os_log(.debug, log: self.log, "[%{public}s]: Got new settings", self.id.uuidString)
-        Self.reloadController?.settings = newSettings
+        // Settings arrive only through shared UserDefaults to avoid switching focus to Safari
     }
     
     override func toolbarItemClicked(in window: SFSafariWindow) {

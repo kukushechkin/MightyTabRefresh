@@ -49,6 +49,7 @@ class ExtensionController: ExtensionControllerProtocol {
     }
     
     func sendSettingsToExtension(name: String, settings: [String : Any]) {
+        // This switches focus to Safari => cannot be used
         SFSafariApplication.dispatchMessage(withName: name,
                                             toExtensionWithIdentifier: self.extensionIdentifier,
                                             userInfo: settings) { [weak self] error in
