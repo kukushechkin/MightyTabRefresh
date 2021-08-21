@@ -25,6 +25,7 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * move all identifiers to a shared package
 * ExtensionSettings serialization tests
 * rules view UI tests
+* window size and resizing
 
 ### Extension:
 * open app on toolbar item click, if there is no rule — make a new one with the host right away
@@ -32,9 +33,14 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * cleanup closed pages
 * ReloadController tests
 
+### Open Sourcing
+* DocC documentation
+
 ### Publishing:
 * create app in iTunesConnect
 * publish to TestFlight
 * release to the Mac App Store
 * create a GitHub Actions TestFlight and release pipeline
 
+### iOS 
+* check if this will work on iOS as well
