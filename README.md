@@ -13,8 +13,8 @@ Sometimes web services have aggressive activity tracking and force you to login 
 ## TODO:
 
 ### App:
-* app icon
 * update settings on edit finish (=> no need in send settings button)
+* app icon
 * pattern editor (rename for domain for now?)
 * localizable strings with plural forms
 * time interval formatter
@@ -22,12 +22,18 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * make extension state controls look better
 * animation on items add/remove
 * move all identifiers to a shared package
-* tests
+* ExtensionSettings serialization tests
+* rules view UI tests
 
 ### Extension:
-* blue icon in toolbar if there is a rule matching this page
 * open app on toolbar item click, if there is no rule — make a new one with the host right away
+* blue icon in toolbar if there is a rule matching this page
 * cleanup closed pages
-* tests
+* ReloadController tests
 
+### Publishing:
+* create app in iTunesConnect
+* publish to TestFlight
+* release to the Mac App Store
+* create a GitHub Actions TestFlight and release pipeline
 
