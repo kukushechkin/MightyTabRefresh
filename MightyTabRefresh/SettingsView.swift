@@ -31,8 +31,18 @@ struct RuleEditorView: View {
         HStack {
             CheckBoxView(checked: $rule.enabled)
             Group {
-                TextField("rule", text: $rule.pattern)
-                TextField("interval", value: $rule.refreshInterval, formatter: NumberFormatter())
+                TextField("rule pattern", text: $rule.pattern)
+                    .padding(.leading, 15)
+                    .if(rule.enabled) { view in
+                        view
+                        .cursorOnHover(cursor: .iBeam)
+                        .backgroundOnHover()
+                    }
+                Divider()
+                Slider(value: $rule.refreshInterval, in: 10...3600) {
+                    // TODO: time interval formatter
+                    Text("update every \(Int(rule.refreshInterval)) sec")
+                }
             }
             .disabled(!rule.enabled)
         }
@@ -48,6 +58,8 @@ struct SettingsView: View {
                 ForEach(self.extensionSettings.rules.indexed(), id: \.1.id) { index, rule in
                     HStack {
                         RuleEditorView(rule: self.$extensionSettings.rules[index])
+                        Spacer()
+                            .frame(width: 100, height: 0, alignment: .leading)
                         DeleteItemButtonView {
                             self.delete(at: IndexSet(integer: index))
                         }
