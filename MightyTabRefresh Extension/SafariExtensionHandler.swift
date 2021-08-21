@@ -12,6 +12,7 @@ import Combine
 import ExtensionSettings
 
 let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
+let scriptBecameActiveMessageKey = "com.kukushechkin.MightyTabRefresh.scriptBecameAvailable"
 
 extension UserDefaults {
     @objc var lastKnownExtensionSettings: Any? {
@@ -68,7 +69,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         page.getPropertiesWithCompletionHandler { properties in
             guard let self = weakself else { return }
             os_log(.debug, log: self.log, "[%{public}s]: Injected script page with url %{public}s is now active", self.id.uuidString, properties?.url?.host ?? "<none>")
-            if messageName == ExtensionSettings.scriptBecameActiveMessageKey {
+            if messageName == scriptBecameActiveMessageKey {
                 os_log(.debug, log: self.log, "[%{public}s]: will add page for %{public}s", self.id.uuidString, properties?.url?.host ?? "<none>")
                 Self.reloadController?.add(page: page)
             }

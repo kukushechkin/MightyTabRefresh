@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Rule: Codable {
+public struct Rule: Codable, Identifiable, Equatable {
     public let id: UUID
     public var enabled: Bool
     public var pattern: String
@@ -18,18 +18,25 @@ public struct Rule: Codable {
     }
 }
 
-/// Used to transfer urls and refresh times from the app to the extension.
+// Used to transfer urls and refresh times from the app to the extension.
 public struct ExtensionSettings: Codable {
-    public static let settingsMessageName = "com.kukushechkin.MightyTabRefresh.settingsMessage"
-    public static let settingsMessageKey = "com.kukushechkin.MightyTabRefresh.settingsMessage.settings"
-    public static let reloadCommandMessageName = "com.kukushechkin.MightyTabRefresh.reloadMessage"
-    public static let reloadCommandMessageKey = "com.kukushechkin.MightyTabRefresh.reloadMessage.hosts"
-    public static let scriptBecameActiveMessageKey = "com.kukushechkin.MightyTabRefresh.scriptBecameAvailable"
-    
     public var rules: [Rule] = []
     
     public init(rules: [Rule]) {
         self.rules = rules
+    }
+}
+
+// Rules modification
+public extension ExtensionSettings {
+//    mutating func remove(rule: Rule) {
+//        self.rules = self.rules.filter { r in
+//            r.id != rule.id
+//        }
+//    }
+    
+    mutating func add(rule: Rule = Rule.defaultRule()) {
+        self.rules = self.rules + [rule]
     }
 }
 
@@ -40,7 +47,7 @@ public extension ExtensionSettings {
               let decoded = try? JSONDecoder().decode(ExtensionSettings.self, from: jsonData) else {
             return nil
         }
-        self = decoded
+        self.rules = decoded.rules
     }
     
     func encode() throws -> Any {

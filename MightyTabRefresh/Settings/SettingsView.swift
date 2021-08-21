@@ -9,36 +9,43 @@ import Foundation
 import SwiftUI
 import ExtensionSettings
 
-struct SettingsView: View {
-    @Binding var extensionSettings: ExtensionSettings
+struct RulesListView: View {
+    @Binding var rules: [Rule]
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(self.extensionSettings.rules.indexed(), id: \.1.id) { index, rule in
-                    HStack {
-                        RuleEditorView(rule: self.$extensionSettings.rules[index],
-                                       rulePattern: self.extensionSettings.rules[index].pattern)
-                        Spacer()
-                            .frame(width: 50, height: 0, alignment: .leading)
-                        DeleteItemButtonView {
-                            self.delete(at: IndexSet(integer: index))
+        ForEach(self.rules, id: \.id) { rule in
+            HStack {
+                if let index = self.rules.firstIndex(of: rule),
+                   index < self.rules.count {
+                    RuleEditorView(rule: self.$rules[index],
+                                   rulePattern: rule.pattern)
+                    Spacer()
+                        .frame(width: 50, height: 0, alignment: .leading)
+                    DeleteItemButtonView {
+                        self.rules.removeAll { r in
+                            r.id == rule.id
                         }
                     }
                 }
             }
-            .toolbar {
-                Button(action: add) { Label("", systemImage: "plus") }
-            }
+        }
+    }
+}
+
+struct SettingsView: View {
+    @Binding var extensionSettings: ExtensionSettings
+    
+    var body: some View {
+        List {
+            RulesListView(rules: self.$extensionSettings.rules)
+        }
+        .toolbar {
+            Button(action: add) { Label("", systemImage: "plus") }
         }
     }
     
-    func delete(at offsets: IndexSet) {
-        self.extensionSettings.rules.remove(atOffsets: offsets)
-    }
-    
     func add() {
-        self.extensionSettings.rules.append(Rule.defaultRule())
+        self.extensionSettings.add()
     }
 }
 
