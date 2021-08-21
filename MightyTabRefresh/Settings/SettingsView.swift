@@ -17,9 +17,10 @@ struct SettingsView: View {
             List {
                 ForEach(self.extensionSettings.rules.indexed(), id: \.1.id) { index, rule in
                     HStack {
-                        RuleEditorView(rule: self.$extensionSettings.rules[index])
+                        RuleEditorView(rule: self.$extensionSettings.rules[index],
+                                       rulePattern: self.extensionSettings.rules[index].pattern)
                         Spacer()
-                            .frame(width: 100, height: 0, alignment: .leading)
+                            .frame(width: 50, height: 0, alignment: .leading)
                         DeleteItemButtonView {
                             self.delete(at: IndexSet(integer: index))
                         }

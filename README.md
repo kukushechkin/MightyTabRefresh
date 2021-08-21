@@ -14,9 +14,11 @@ Sometimes web services have aggressive activity tracking and force you to login 
 
 ### App:
 * update settings on edit finish (=> no need in send settings button)
+* SettingsView directly changes .rules list and crashing on removing last rule, refactor this
 * app icon
 * pattern editor (rename for domain for now?)
 * localizable strings with plural forms
+* keep listening to the extension state in Safari after opening safari preferences
 * time interval formatter
 * progressive slider values
 * make extension state controls look better

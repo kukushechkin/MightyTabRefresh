@@ -11,7 +11,6 @@ struct CheckBoxView: View {
             .onTapGesture {
                 self.checked.toggle()
             }
-            .cursorOnHover(cursor: .pointingHand)
     }
 }
 

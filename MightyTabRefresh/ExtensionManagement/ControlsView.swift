@@ -16,25 +16,29 @@ struct ControlsView: View {
         HStack {
             Spacer()
             if self.extensionController.enabled {
-                Text("Extension is activated, everything is fine")
+                Text("Extension is active, everything is fine, enjoy refreshing tabs")
+                    .foregroundColor(Color(NSColor.disabledControlTextColor))
+
             } else {
                 HStack {
-                    Text("Extension is not active")
-                    Button("Activate Safari Extension") {
+                    Text("Extension is not active. Please, enable extension in Safari preferences")
+                    .foregroundColor(Color.red)
+                    Button(action: {
+                        self.extensionController.updateState()
+                        self.extensionController.updateSettings()
                         self.extensionController.openSafariPreferences()
-                    }
+                    }) { Label("", systemImage: "safari") }
+                    .buttonStyle(BorderlessButtonStyle())
                 }
             }
-            Spacer()
-            Button("Refresh") {
+        }
+        .padding()
+        .toolbar {
+            Button(action: {
                 self.extensionController.updateState()
-            }
-            .padding()
-            Spacer()
-            Button("Update settigns") {
                 self.extensionController.updateSettings()
-            }
-            .padding()
+                self.extensionController.openSafariPreferences()
+            }) { Label("", systemImage: "safari") }
         }
     }
 }
