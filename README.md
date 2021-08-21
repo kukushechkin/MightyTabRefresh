@@ -14,11 +14,11 @@ Sometimes web services have aggressive activity tracking and force you to login 
 
 ### App:
 * app icon
-* update settings on edit finish
-* nice pattern editor
-* slider for interval
+* update settings on edit finish (=> no need in send settings button)
+* pattern editor (rename for domain for now?)
 * localizable strings with plural forms
-* extension state
+* make slider for interval look better
+* make extension state controls look better
 * animation on items add/remove
 * other small TODOs in code
 * tests
