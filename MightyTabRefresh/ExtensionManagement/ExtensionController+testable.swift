@@ -16,11 +16,11 @@ struct ExtensionControllerMock: ExtensionControllerProtocol {
     }
     
     func openSafariPreferences() {
-        // TODO:
+        //
     }
     
     func sendSettingsToExtension(name: String, settings: [String : Any]) {
-        // TODO:
+        //
     }
     
     

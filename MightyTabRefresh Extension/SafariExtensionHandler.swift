@@ -10,8 +10,6 @@ import os.log
 
 import ExtensionSettings
 
-// TODO: use static singletone to keep settings and timers
-
 class SafariExtensionHandler: SFSafariExtensionHandler {
     static private var reloadController: ReloadController?
     
@@ -19,7 +17,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "SafariExtensionHandler")
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
         
-    private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings" // TODO: share with app
+    private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
     
     override init() {
         super.init()
@@ -63,8 +61,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 os_log(.debug, log: self.log, "[%{public}s]: will add page for %{public}s", self.id.uuidString, properties?.url?.host ?? "<none>")
                 Self.reloadController?.add(page: page)
             }
-                        
-            // TODO: remove page from reloadController
         }
     }
 
@@ -93,14 +89,11 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             return
         }
 
-        // TODO: settings description
         os_log(.debug, log: self.log, "[%{public}s]: Got new settings", self.id.uuidString)
         Self.reloadController?.settings = newSettings
     }
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        // TODO: open App
-        
 //        self.activePages.forEach { host, _ in
 //            os_log(.debug, log: self.log, "another active page: %{public}s", host)
 //        }

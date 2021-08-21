@@ -44,7 +44,7 @@ class ExtensionController: ExtensionControllerProtocol {
     
     func openSafariPreferences() {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: self.extensionIdentifier) { error in
-            // TODO: callback to close the app?
+            // Should there be a callback to close the app?
         }
     }
     

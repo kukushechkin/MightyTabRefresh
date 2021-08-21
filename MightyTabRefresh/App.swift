@@ -22,7 +22,6 @@ struct ContentView: View {
 
 @main
 struct MightyTabRefreshApp: App {
-    // TODO: move all identifiers to a shared package
     @StateObject var extensionController = ExtensionViewModel(extensionController: ExtensionController(extensionIdentifier: "com.kukushechkin.MightyTabRefresh.Extension"))
     
     var body: some Scene {

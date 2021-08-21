@@ -26,7 +26,6 @@ struct RuleEditorView: View {
                     }
                 Divider()
                 Slider(value: $rule.refreshInterval, in: 10...3600) {
-                    // TODO: time interval formatter
                     Text("update every \(Int(rule.refreshInterval)) sec")
                         .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
                 }

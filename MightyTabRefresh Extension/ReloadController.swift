@@ -53,7 +53,6 @@ class ReloadController: ReloadControllerProtocol {
     func add(page: SFSafariPage) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
-            // TODO: clean inactive pages
             self.activePages.append(page)
             os_log(.debug, log: self.log, "pages registered: %d", self.activePages.count)
         }
@@ -72,14 +71,12 @@ class ReloadController: ReloadControllerProtocol {
     
     private func setupTimerFor(rule: Rule) {
         DispatchQueue.main.async {
-            // TODO: will more taking a slice of pages into the closure be more efficient?
+            // will more taking a slice of pages into the closure be more efficient?
             let newTimer = Timer.scheduledTimer(withTimeInterval: rule.refreshInterval, repeats: true) {_ in
                 os_log(.debug, log: self.log, "firing timer for %{public}s", rule.pattern)
                 self.activePages.forEach { page in
                     page.getPropertiesWithCompletionHandler { props in
                         guard let props = props else { return }
-                        // TODO: actually apply pattern
-                        // TODO: define what is pattern
                         if props.url?.host?.contains(rule.pattern) ?? false {
                             page.reload()
                         }
@@ -99,8 +96,6 @@ class ReloadController: ReloadControllerProtocol {
                     return
                 }
                 if !patterns.filter({ pattern in
-                    // TODO: actually apply pattern
-                    // TODO: define what is pattern
                     properties.url?.host?.contains(pattern) ?? false
                 }).isEmpty {
                     page.dispatchMessageToScript(withName: key, userInfo: data)
