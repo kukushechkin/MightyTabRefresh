@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var extensionController: ExtensionController
+    @EnvironmentObject private var extensionController: ExtensionViewModel
     
     var body: some View {
         VStack {
@@ -22,7 +22,8 @@ struct ContentView: View {
 
 @main
 struct MightyTabRefreshApp: App {
-    @StateObject var extensionController = ExtensionController()
+    // TODO: move all identifiers to a shared package
+    @StateObject var extensionController = ExtensionViewModel(extensionController: ExtensionController(extensionIdentifier: "com.kukushechkin.MightyTabRefresh.Extension"))
     
     var body: some Scene {
         WindowGroup {

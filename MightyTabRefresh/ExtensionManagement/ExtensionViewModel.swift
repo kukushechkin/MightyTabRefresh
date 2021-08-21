@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  ExtensionViewModel.swift
 //  MightyTabRefresh
 //
 //  Created by Kukushkin, Vladimir on 10.7.2021.
@@ -8,29 +8,25 @@
 import Foundation
 import SwiftUI
 import Combine
-import SafariServices
 import os.log
 import ExtensionSettings
 
-internal protocol ExtensionControllerProtocol: ObservableObject {
-    var settings: ExtensionSettings { get set }
-}
-
-internal class ExtensionController: ExtensionControllerProtocol {
-    private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ExtensionController")
+internal class ExtensionViewModel: ObservableObject {
+    private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ExtensionViewModel")
     private let statusRefreshQueue = DispatchQueue(label: "com.kukushechkin.MightyTabRefresh.extensionCheckQueue")
-    
-    // TODO: move all identifiers to a shared package
-    private let extensionBundleIdentifier = "com.kukushechkin.MightyTabRefresh.Extension"
+//    private let schedule: Cancellable?
     
     private let lastKnownExtensionStateKey = "lastKnownExtensionState"
     private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
 
+    let extensionController: ExtensionControllerProtocol
+    
     @Published var enabled: Bool
     @Published var settings: ExtensionSettings
-    
-    internal init() {
+        
+    internal init(extensionController: ExtensionControllerProtocol) {
+        self.extensionController = extensionController
         self.enabled = defaults?.bool(forKey: self.lastKnownExtensionStateKey) ?? false
             
         if let persistentData = defaults?.object(forKey: self.lastKnownExtensionSettingsKey),
@@ -46,31 +42,26 @@ internal class ExtensionController: ExtensionControllerProtocol {
         }
         
         self.updateState()
-        self.updateSettings()
+        // self.updateSettings()
+        
+//        self.schedule = self.statusRefreshQueue.schedule(after: DispatchQueue.SchedulerTimeType(DispatchTime(uptimeNanoseconds: 0)),
+//                                                         interval: DispatchQueue.SchedulerTimeType.Stride(floatLiteral: 1.0),
+//                                                         tolerance: 0.1,
+//                                                         options: nil) { [weak self] in
+//            self?.updateState()
+//        }
     }
     
     internal func updateState() {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { [weak self] (state, error) in
-            guard let self = self else { return }
-            guard let unwrappedState = state, error == nil else {
-                DispatchQueue.main.async {
-                    self.enabled = false
-                }
-                os_log(.error, log: self.log, "Safari App Extension is not enabled: %d, %s", state?.isEnabled ?? false, error?.localizedDescription ?? "")
-                return
-            }
-            
-            os_log(.info, log: self.log, "New Safari App Extension state: %d", unwrappedState.isEnabled)
+        self.extensionController.getState { state in
             DispatchQueue.main.async {
-                self.enabled = unwrappedState.isEnabled
+                self.enabled = (state == .enabled)
             }
         }
     }
     
-    internal func openSafariPrefs() {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            // TODO: close app?
-        }
+    internal func openSafariPreferences() {
+        self.extensionController.openSafariPreferences()
     }
     
     internal func updateSettings() {
@@ -85,13 +76,7 @@ internal class ExtensionController: ExtensionControllerProtocol {
             os_log(.error, log: self.log, "Failed to encode settings to json")
             return
         }
-        SFSafariApplication.dispatchMessage(withName: ExtensionSettings.settingsMessageName,
-                                            toExtensionWithIdentifier: self.extensionBundleIdentifier,
-                                            userInfo: [ExtensionSettings.settingsMessageKey: encodedSettings]) { [weak self] error in
-            guard let self = self else { return }
-            if let error = error {
-                os_log(.error, log: self.log, "Error sending settings to Safari App Extension: %s", error.localizedDescription)
-            }
-        }
+        self.extensionController.sendSettingsToExtension(name: ExtensionSettings.settingsMessageName,
+                                                         settings: [ExtensionSettings.settingsMessageKey: encodedSettings])
     }
 }

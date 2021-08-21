@@ -10,6 +10,8 @@
 		ED0D6E6326D16E3F0030F153 /* CursorOnHoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E6226D16E3F0030F153 /* CursorOnHoverModifier.swift */; };
 		ED0D6E6526D16F9C0030F153 /* BackgroundOnHoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E6426D16F9C0030F153 /* BackgroundOnHoverModifier.swift */; };
 		ED0D6E6726D1722C0030F153 /* ViewConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E6626D1722C0030F153 /* ViewConditionalModifier.swift */; };
+		ED0D6E6926D17F470030F153 /* ExtensionController+testable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E6826D17F470030F153 /* ExtensionController+testable.swift */; };
+		ED0D6E6B26D181820030F153 /* ExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E6A26D181820030F153 /* ExtensionController.swift */; };
 		ED68F2DB26C80C2400B43BC8 /* Sequence+indexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */; };
 		ED68F2DE26C80D5000B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */; };
 		ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */; };
@@ -25,7 +27,7 @@
 		ED947BBB2699E47800310CBA /* MightyTabRefreshInjectedScript.js in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBA2699E47800310CBA /* MightyTabRefreshInjectedScript.js */; };
 		ED947BBD2699E47800310CBA /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBC2699E47800310CBA /* ToolbarItemIcon.pdf */; };
 		ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */; };
-		ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947C4B269A000800310CBA /* ExtensionController.swift */; };
+		ED947C4C269A000800310CBA /* ExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947C4B269A000800310CBA /* ExtensionViewModel.swift */; };
 		ED947C50269B051200310CBA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ED947C4F269B051200310CBA /* .gitignore */; };
 		EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A226A620AA001BE768 /* SettingsView.swift */; };
 		EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A426A620EA001BE768 /* ControlsView.swift */; };
@@ -75,6 +77,8 @@
 		ED0D6E6226D16E3F0030F153 /* CursorOnHoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorOnHoverModifier.swift; sourceTree = "<group>"; };
 		ED0D6E6426D16F9C0030F153 /* BackgroundOnHoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundOnHoverModifier.swift; sourceTree = "<group>"; };
 		ED0D6E6626D1722C0030F153 /* ViewConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConditionalModifier.swift; sourceTree = "<group>"; };
+		ED0D6E6826D17F470030F153 /* ExtensionController+testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionController+testable.swift"; sourceTree = "<group>"; };
+		ED0D6E6A26D181820030F153 /* ExtensionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionController.swift; sourceTree = "<group>"; };
 		ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+indexed.swift"; sourceTree = "<group>"; };
 		ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		ED68F2F126CC578A00B43BC8 /* MightyTabRefresh Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MightyTabRefresh Extension.entitlements"; sourceTree = "<group>"; };
@@ -95,7 +99,7 @@
 		ED947BBF2699E47800310CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		ED947BC12699E47800310CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED947BD12699E68A00310CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		ED947C4B269A000800310CBA /* ExtensionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionController.swift; sourceTree = "<group>"; };
+		ED947C4B269A000800310CBA /* ExtensionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewModel.swift; sourceTree = "<group>"; };
 		ED947C4E269B031100310CBA /* ExtensionSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExtensionSettings; sourceTree = "<group>"; };
 		ED947C4F269B051200310CBA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EDC341A226A620AA001BE768 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -138,16 +142,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ED68F2D926C80C1100B43BC8 /* Stuff */ = {
+		ED0D6E6C26D185D90030F153 /* ExtensionManagement */ = {
 			isa = PBXGroup;
 			children = (
-				ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */,
+				ED0D6E6A26D181820030F153 /* ExtensionController.swift */,
+				ED0D6E6826D17F470030F153 /* ExtensionController+testable.swift */,
+				ED947C4B269A000800310CBA /* ExtensionViewModel.swift */,
+				EDC341A426A620EA001BE768 /* ControlsView.swift */,
+			);
+			path = ExtensionManagement;
+			sourceTree = "<group>";
+		};
+		ED0D6E6D26D185EA0030F153 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */,
 				ED0D6E6226D16E3F0030F153 /* CursorOnHoverModifier.swift */,
-				ED0D6E6426D16F9C0030F153 /* BackgroundOnHoverModifier.swift */,
 				ED0D6E6626D1722C0030F153 /* ViewConditionalModifier.swift */,
+				ED0D6E6426D16F9C0030F153 /* BackgroundOnHoverModifier.swift */,
+				ED68F2DA26C80C2400B43BC8 /* Sequence+indexed.swift */,
+				EDC341A226A620AA001BE768 /* SettingsView.swift */,
 			);
-			path = Stuff;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		ED947B782699E47600310CBA = {
@@ -158,7 +174,6 @@
 				ED947C4F269B051200310CBA /* .gitignore */,
 				ED947C4E269B031100310CBA /* ExtensionSettings */,
 				ED947B832699E47600310CBA /* MightyTabRefresh */,
-				ED947B9F2699E47800310CBA /* MightyTabRefreshTests */,
 				ED947BA92699E47800310CBA /* MightyTabRefreshUITests */,
 				ED947BB42699E47800310CBA /* MightyTabRefresh Extension */,
 				ED947B822699E47600310CBA /* Products */,
@@ -183,11 +198,10 @@
 				ED947BD12699E68A00310CBA /* Info.plist */,
 				ED947B952699E47800310CBA /* Assets.xcassets */,
 				ED947B972699E47800310CBA /* MightyTabRefresh.entitlements */,
-				ED68F2D926C80C1100B43BC8 /* Stuff */,
 				ED947B842699E47600310CBA /* App.swift */,
-				ED947C4B269A000800310CBA /* ExtensionController.swift */,
-				EDC341A226A620AA001BE768 /* SettingsView.swift */,
-				EDC341A426A620EA001BE768 /* ControlsView.swift */,
+				ED0D6E6C26D185D90030F153 /* ExtensionManagement */,
+				ED0D6E6D26D185EA0030F153 /* Settings */,
+				ED947B9F2699E47800310CBA /* MightyTabRefreshTests */,
 			);
 			path = MightyTabRefresh;
 			sourceTree = "<group>";
@@ -409,11 +423,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0D6E6B26D181820030F153 /* ExtensionController.swift in Sources */,
 				EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */,
 				ED68F2E226C9090C00B43BC8 /* CheckBoxView.swift in Sources */,
 				ED0D6E6526D16F9C0030F153 /* BackgroundOnHoverModifier.swift in Sources */,
 				EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */,
-				ED947C4C269A000800310CBA /* ExtensionController.swift in Sources */,
+				ED947C4C269A000800310CBA /* ExtensionViewModel.swift in Sources */,
+				ED0D6E6926D17F470030F153 /* ExtensionController+testable.swift in Sources */,
 				ED68F2DB26C80C2400B43BC8 /* Sequence+indexed.swift in Sources */,
 				ED0D6E6326D16E3F0030F153 /* CursorOnHoverModifier.swift in Sources */,
 				ED0D6E6726D1722C0030F153 /* ViewConditionalModifier.swift in Sources */,
