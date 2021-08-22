@@ -14,26 +14,16 @@ struct ControlsView: View {
     
     var body: some View {
         HStack {
-            Spacer()
+        }
+        .toolbar {
             if self.extensionController.enabled {
                 Text("Extension is active, everything is fine, enjoy refreshing tabs")
                     .foregroundColor(Color(NSColor.disabledControlTextColor))
 
             } else {
-                HStack {
-                    Text("Extension is not active. Please, enable extension in Safari preferences")
-                    .foregroundColor(Color.red)
-                    Button(action: {
-                        self.extensionController.updateState()
-                        self.extensionController.updateSettings()
-                        self.extensionController.openSafariPreferences()
-                    }) { Label("", systemImage: "safari") }
-                    .buttonStyle(BorderlessButtonStyle())
-                }
+                Text("Extension is not active. Please, enable extension in Safari preferences")
+                .foregroundColor(Color.red)
             }
-        }
-        .padding()
-        .toolbar {
             Button(action: {
                 self.extensionController.updateState()
                 self.extensionController.updateSettings()

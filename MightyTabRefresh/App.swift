@@ -12,10 +12,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            SettingsView(extensionSettings: self.$extensionController.settings)
-            Spacer()
             ControlsView()
                 .environmentObject(self.extensionController)
+            SettingsView(extensionSettings: self.$extensionController.settings)
         }
     }
 }

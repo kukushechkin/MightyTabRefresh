@@ -16,7 +16,7 @@ struct RulesListView: View {
         ForEach(self.rules, id: \.id) { rule in
             HStack {
                 if let index = self.rules.firstIndex(of: rule),
-                   index < self.rules.count {
+                   index < self.rules.count-1 {
                     RuleEditorView(rule: self.$rules[index],
                                    rulePattern: rule.pattern,
                                    ruleRefreshInterval: rule.refreshInterval)
@@ -33,12 +33,31 @@ struct RulesListView: View {
     }
 }
 
+struct NoRulesView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Text("Press \"+\" to add your first rule for some domain and interval to update ")
+                    .foregroundColor(Color(NSColor.disabledControlTextColor))
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+}
+
 struct SettingsView: View {
     @Binding var extensionSettings: ExtensionSettings
     
     var body: some View {
         List {
-            RulesListView(rules: self.$extensionSettings.rules)
+            if self.extensionSettings.rules.count <= 1 {
+                NoRulesView()
+            } else {
+                RulesListView(rules: self.$extensionSettings.rules)
+            }
         }
         .toolbar {
             Button(action: add) { Label("", systemImage: "plus") }
@@ -65,6 +84,13 @@ struct SettingsView_Previews: PreviewProvider {
                 Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
             ])))
                 .environment(\.colorScheme, .dark)
+            SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
+            ])))
+                .environment(\.colorScheme, .light)
+            SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
+            ])))
+                .environment(\.colorScheme, .light)
         }
     }
 }

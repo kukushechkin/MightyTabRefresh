@@ -23,7 +23,8 @@ public struct ExtensionSettings: Codable {
     public var rules: [Rule] = []
     
     public init(rules: [Rule]) {
-        self.rules = rules
+        // Workaround for ForEach List
+        self.rules = rules + [Rule.defaultRule()]
     }
 }
 

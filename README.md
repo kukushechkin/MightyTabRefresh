@@ -13,7 +13,6 @@ Sometimes web services have aggressive activity tracking and force you to login 
 ## TODO:
 
 ### App:
-* SettingsView directly changes .rules list and crashing on removing last rule, refactor this
 * pattern editor (rename to domain for now?)
 * localizable strings with plural forms
 * keep listening to the extension state in Safari after opening safari preferences
@@ -35,7 +34,6 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * DocC documentation
 
 ### Publishing:
-* create app in iTunesConnect
 * make screenshots and description
 * publish to TestFlight
 * release to the Mac App Store
