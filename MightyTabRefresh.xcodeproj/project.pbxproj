@@ -15,6 +15,7 @@
 		ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */; };
 		ED68F2E226C9090C00B43BC8 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */; };
 		ED68F2F326CE940D00B43BC8 /* ReloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2F226CE940D00B43BC8 /* ReloadController.swift */; };
+		ED7378FD26D2D99D00A87A5D /* PrivacyPolicy.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED7378FC26D2D99D00A87A5D /* PrivacyPolicy.txt */; };
 		ED947B852699E47600310CBA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947B842699E47600310CBA /* App.swift */; };
 		ED947B962699E47800310CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED947B952699E47800310CBA /* Assets.xcassets */; };
 		ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */; };
@@ -79,7 +80,8 @@
 		ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		ED68F2F126CC578A00B43BC8 /* MightyTabRefresh Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MightyTabRefresh Extension.entitlements"; sourceTree = "<group>"; };
 		ED68F2F226CE940D00B43BC8 /* ReloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadController.swift; sourceTree = "<group>"; };
-		ED947B812699E47600310CBA /* MightyTabRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyTabRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED7378FC26D2D99D00A87A5D /* PrivacyPolicy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PrivacyPolicy.txt; sourceTree = "<group>"; };
+		ED947B812699E47600310CBA /* Mighty Tab Refresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mighty Tab Refresh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED947B842699E47600310CBA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		ED947B952699E47800310CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED947B972699E47800310CBA /* MightyTabRefresh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MightyTabRefresh.entitlements; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		ED947B782699E47600310CBA = {
 			isa = PBXGroup;
 			children = (
+				ED7378FC26D2D99D00A87A5D /* PrivacyPolicy.txt */,
 				EDD142C5269B08B60099470F /* README.md */,
 				EDD142C3269B07FD0099470F /* .github */,
 				ED947C4F269B051200310CBA /* .gitignore */,
@@ -178,7 +181,7 @@
 		ED947B822699E47600310CBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED947B812699E47600310CBA /* MightyTabRefresh.app */,
+				ED947B812699E47600310CBA /* Mighty Tab Refresh.app */,
 				ED947B9C2699E47800310CBA /* MightyTabRefreshTests.xctest */,
 				ED947BA62699E47800310CBA /* MightyTabRefreshUITests.xctest */,
 				ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */,
@@ -268,7 +271,7 @@
 				ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */,
 			);
 			productName = MightyTabRefresh;
-			productReference = ED947B812699E47600310CBA /* MightyTabRefresh.app */;
+			productReference = ED947B812699E47600310CBA /* Mighty Tab Refresh.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED947B9B2699E47800310CBA /* MightyTabRefreshTests */ = {
@@ -379,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7378FD26D2D99D00A87A5D /* PrivacyPolicy.txt in Resources */,
 				EDD142C4269B07FD0099470F /* .github in Resources */,
 				ED947C50269B051200310CBA /* .gitignore in Resources */,
 				EDD142C6269B08B60099470F /* README.md in Resources */,
@@ -608,7 +612,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MightyTabRefresh Extension/MightyTabRefresh Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -640,7 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MightyTabRefresh Extension/MightyTabRefresh Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -676,16 +680,16 @@
 				CODE_SIGN_ENTITLEMENTS = MightyTabRefresh/MightyTabRefresh.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MightyTabRefresh/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mighty Tab Refresh";
 				INFOPLIST_KEY_CFBundleExecutable = MightyTabRefresh;
-				INFOPLIST_KEY_CFBundleName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleName = "Mighty Tab Refresh";
 				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -699,7 +703,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mighty Tab Refresh";
 				RUN_DOCUMENTATION_COMPILER = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -716,16 +720,16 @@
 				CODE_SIGN_ENTITLEMENTS = MightyTabRefresh/MightyTabRefresh.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MightyTabRefresh/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mighty Tab Refresh";
 				INFOPLIST_KEY_CFBundleExecutable = MightyTabRefresh;
-				INFOPLIST_KEY_CFBundleName = MightyTabRefresh;
+				INFOPLIST_KEY_CFBundleName = "Mighty Tab Refresh";
 				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -739,7 +743,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mighty Tab Refresh";
 				RUN_DOCUMENTATION_COMPILER = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
