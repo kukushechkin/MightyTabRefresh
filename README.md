@@ -25,10 +25,10 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * window size and resizing
 
 ### Extension:
-* open app on toolbar item click, if there is no rule — make a new one with the host right away
 * blue icon in toolbar if there is a rule matching this page
 * cleanup closed pages
 * ReloadController tests
+* on app gui add a rule with prepopulated domain if no matching rule exists
 
 ### Open Sourcing
 * DocC documentation

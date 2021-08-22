@@ -81,9 +81,14 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
-//        self.activePages.forEach { host, _ in
-//            os_log(.debug, log: self.log, "another active page: %{public}s", host)
-//        }
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.activates = true
+        let parentBundleUrl = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+        NSWorkspace.shared.openApplication(at: parentBundleUrl, configuration: configuration) { app, error in
+            if let error = error {
+                os_log(.error, log: self.log, "[%{public}s]: failed to open app: %{public}s", self.id.uuidString, error.localizedDescription)
+            }
+        }
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
