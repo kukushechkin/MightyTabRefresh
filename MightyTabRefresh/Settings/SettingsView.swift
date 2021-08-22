@@ -18,7 +18,8 @@ struct RulesListView: View {
                 if let index = self.rules.firstIndex(of: rule),
                    index < self.rules.count {
                     RuleEditorView(rule: self.$rules[index],
-                                   rulePattern: rule.pattern)
+                                   rulePattern: rule.pattern,
+                                   ruleRefreshInterval: rule.refreshInterval)
                     Spacer()
                         .frame(width: 50, height: 0, alignment: .leading)
                     DeleteItemButtonView {
