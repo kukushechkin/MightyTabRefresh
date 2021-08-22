@@ -14,15 +14,13 @@ Sometimes web services have aggressive activity tracking and force you to login 
 
 ### App:
 * SettingsView directly changes .rules list and crashing on removing last rule, refactor this
-* app icon
-* pattern editor (rename for domain for now?)
+* pattern editor (rename to domain for now?)
 * localizable strings with plural forms
 * keep listening to the extension state in Safari after opening safari preferences
 * time interval formatter
 * progressive slider values
-* make extension state controls look better
 * animation on items add/remove
-* move all identifiers to a shared package
+* move all identifiers to a shared place
 * ExtensionSettings serialization tests
 * rules view UI tests
 * window size and resizing
@@ -38,6 +36,7 @@ Sometimes web services have aggressive activity tracking and force you to login 
 
 ### Publishing:
 * create app in iTunesConnect
+* make screenshots and description
 * publish to TestFlight
 * release to the Mac App Store
 * create a GitHub Actions TestFlight and release pipeline
