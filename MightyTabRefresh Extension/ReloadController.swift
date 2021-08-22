@@ -41,7 +41,7 @@ class ReloadController: ReloadControllerProtocol {
                 }
                 self.timers.removeAll()
                 newValue?.rules.forEach({ rule in
-                    if rule.enabled {
+                    if rule.enabled && !rule.pattern.isEmpty {
                         os_log(.debug, log: self.log, "will setup timer for %{public}s", rule.pattern)
                         self.setupTimerFor(rule: rule)
                     }
