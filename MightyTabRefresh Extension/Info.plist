@@ -33,6 +33,8 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableDescription</key>
-	<string>This is MightyTabRefresh Extension. You should tell us what your extension does here.</string>
+	<string>This is MightyTabRefresh Extension. It will automatically reload specific web pages in Safari based on settings in the parent app.</string>
+	<key>CFBundleDisplayName</key>
+	<string>MightTabRefresh Extension</string>
 </dict>
 </plist>
