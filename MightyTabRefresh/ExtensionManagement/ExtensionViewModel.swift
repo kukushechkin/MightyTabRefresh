@@ -11,14 +11,19 @@ import Combine
 import os.log
 import ExtensionSettings
 
+let lastKnownExtensionStateKey = "lastKnownExtensionState"
+let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
+
 internal class ExtensionViewModel: ObservableObject {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ExtensionViewModel")
     private let statusRefreshQueue = DispatchQueue(label: "com.kukushechkin.MightyTabRefresh.extensionCheckQueue")
-    
-    private let lastKnownExtensionStateKey = "lastKnownExtensionState"
-    private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
-
+    private var timer: Timer?
+    private var timerCancelTimer: Timer?
+    
+    private let extensionStateUpdateInterval = 1.0
+    private let extensionStateUpdateCancelInterval = 15.0
+    
     private let extensionController: ExtensionControllerProtocol
     
     @Published var enabled: Bool
@@ -26,9 +31,9 @@ internal class ExtensionViewModel: ObservableObject {
         
     internal init(extensionController: ExtensionControllerProtocol) {
         self.extensionController = extensionController
-        self.enabled = defaults?.bool(forKey: self.lastKnownExtensionStateKey) ?? false
+        self.enabled = defaults?.bool(forKey: lastKnownExtensionStateKey) ?? false
             
-        if let persistentData = defaults?.object(forKey: self.lastKnownExtensionSettingsKey),
+        if let persistentData = defaults?.object(forKey: lastKnownExtensionSettingsKey),
            let settings = ExtensionSettings(from: persistentData) {
             self.settings = settings
         } else {
@@ -67,12 +72,27 @@ internal class ExtensionViewModel: ObservableObject {
     }
     
     internal func openSafariPreferences() {
+        DispatchQueue.main.async {
+            os_log(.info, log: self.log, "will start monitoring extension state")
+            self.timer?.invalidate()
+            self.timer = Timer.scheduledTimer(withTimeInterval: self.extensionStateUpdateInterval, repeats: true) { _ in
+                self.updateState()
+            }
+            
+            // \(self.extensionStateUpdateCancelInterval) secs of CPU load for the better UX
+            self.timerCancelTimer = Timer.scheduledTimer(withTimeInterval: self.extensionStateUpdateCancelInterval, repeats: false) { _ in
+                self.timer?.invalidate()
+                self.timer = nil
+                self.timerCancelTimer?.invalidate()
+                self.timerCancelTimer = nil
+            }
+        }
         self.extensionController.openSafariPreferences()
     }
     
     internal func updateSettings() {
         do {
-            try self.defaults?.set(self.settings.encode(), forKey: self.lastKnownExtensionSettingsKey)
+            try self.defaults?.set(self.settings.encode(), forKey: lastKnownExtensionSettingsKey)
         } catch {
             os_log(.error, log: self.log, "error saving settings: %{public}s", error.localizedDescription)
         }

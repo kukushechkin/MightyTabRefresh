@@ -13,7 +13,6 @@ Sometimes web services have aggressive activity tracking and force you to login 
 ## TODO:
 
 ### App:
-* keep listening to the extension state in Safari after opening safari preferences
 * update product icon — embroiled logo
 * time interval formatter
 * progressive slider values
@@ -22,6 +21,7 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * animation on items add/remove
 * move all identifiers to a shared place
 * ExtensionSettings serialization tests
+* extension state update timers tests
 * rules view UI tests
 * window size and resizing
 
