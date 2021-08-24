@@ -60,7 +60,7 @@ class ReloadController {
     func removePage(uuid: String) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
-            os_log(.debug, log: self.log, "will remove page %{public}s (%{public}s)", uuid, self.trackedPages[uuid]?.page.host ?? "")
+            os_log(.debug, log: self.log, "will remove page %{public}s (%s)", uuid, self.trackedPages[uuid]?.page.host ?? "")
             self.trackedPages[uuid]?.timer?.invalidate()
             self.trackedPages[uuid] = nil
         }
@@ -69,7 +69,7 @@ class ReloadController {
     func pageBecameActive(uuid: String) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
-            os_log(.debug, log: self.log, "page %{public}s (%{public}s) became active", uuid, self.trackedPages[uuid]?.page.host ?? "")
+            os_log(.debug, log: self.log, "page %{public}s (%s) became active", uuid, self.trackedPages[uuid]?.page.host ?? "")
             self.trackedPages[uuid]?.timer?.invalidate()
             self.trackedPages[uuid]?.timer = nil
         }
@@ -78,7 +78,7 @@ class ReloadController {
     func pageBecameInactive(uuid: String) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
-            os_log(.debug, log: self.log, "page %{public}s (%{public}s) became inactive", uuid, self.trackedPages[uuid]?.page.host ?? "")
+            os_log(.debug, log: self.log, "page %{public}s (%s) became inactive", uuid, self.trackedPages[uuid]?.page.host ?? "")
             if self.trackedPages[uuid]?.timer == nil,
                let rule = self.trackedPages[uuid]?.rule,
                let page = self.trackedPages[uuid]?.page {
@@ -92,9 +92,9 @@ class ReloadController {
     private func setupTimerFor(uuid: String, rule: Rule, page: SFSafariPage) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            os_log(.debug, log: self.log, "will set timer for %{public}s (%{public}s) with interval %d", uuid, page.host, rule.refreshInterval)
+            os_log(.debug, log: self.log, "will set timer for %{public}s (%s) with interval %d", uuid, page.host, rule.refreshInterval)
             self.trackedPages[uuid]?.timer = Timer.scheduledTimer(withTimeInterval: rule.refreshInterval, repeats: true) { _ in
-                os_log(.debug, log: self.log, "firing timer for page %{public}s (%{public}s) with rule %{public}s", uuid, rule.pattern, page.host)
+                os_log(.debug, log: self.log, "firing timer for page %{public}s (%s) with rule %{public}s", uuid, rule.pattern, page.host)
                 page.reload()
             }
         }
@@ -120,9 +120,9 @@ class ReloadController {
         })
 
         if let rule = rule {
-            os_log(.debug, log: self.log, "rule with pattern %{public}s matches page host %{public}s", rule.pattern, pageHost)
+            os_log(.debug, log: self.log, "rule with pattern %{public}s matches page host %s", rule.pattern, pageHost)
         } else {
-            os_log(.debug, log: self.log, "no rule match page host %{public}s", pageHost)
+            os_log(.debug, log: self.log, "no rule match page host %s", pageHost)
         }
         
         return rule

@@ -88,19 +88,19 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             }
             
             if messageName == pageLoadedMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) loaded", self.selfUuid(), pageUuid, host)
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) loaded", self.selfUuid(), pageUuid, host)
                 Self.reloadController?.addPage(uuid: pageUuid, page: page)
             }
             if messageName == pageWillUnloadMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) will unload", self.selfUuid(), pageUuid, host)
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) will unload", self.selfUuid(), pageUuid, host)
                 Self.reloadController?.removePage(uuid: pageUuid)
             }
             if messageName == pageBecameActiveMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) became active", self.selfUuid(), pageUuid, host)
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) became active", self.selfUuid(), pageUuid, host)
                 Self.reloadController?.pageBecameActive(uuid: pageUuid)
             }
             if messageName == pageBecameInactiveMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) became inactive", self.selfUuid(), pageUuid, host)
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) became inactive", self.selfUuid(), pageUuid, host)
                 Self.reloadController?.pageBecameInactive(uuid: pageUuid)
             }
         }
