@@ -10,13 +10,13 @@ import SwiftUI
 import ExtensionSettings
 
 struct ControlsView: View {
-    @EnvironmentObject  var extensionController: ExtensionViewModel
+    @EnvironmentObject  var extensionViewModel: ExtensionViewModel
     
     var body: some View {
         HStack {
         }
         .toolbar {
-            if self.extensionController.enabled {
+            if self.extensionViewModel.enabled {
                 Text("Extension is active, everything is fine, enjoy refreshing tabs")
                     .foregroundColor(Color(NSColor.disabledControlTextColor))
 
@@ -25,9 +25,9 @@ struct ControlsView: View {
                 .foregroundColor(Color.red)
             }
             Button(action: {
-                self.extensionController.updateState()
-                self.extensionController.updateSettings()
-                self.extensionController.openSafariPreferences()
+                self.extensionViewModel.updateState()
+                self.extensionViewModel.updateSettings()
+                self.extensionViewModel.openSafariPreferences()
             }) { Label("", systemImage: "safari") }
         }
     }

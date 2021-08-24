@@ -19,7 +19,7 @@ internal class ExtensionViewModel: ObservableObject {
     private let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
 
-    let extensionController: ExtensionControllerProtocol
+    private let extensionController: ExtensionControllerProtocol
     
     @Published var enabled: Bool
     @Published var settings: ExtensionSettings
