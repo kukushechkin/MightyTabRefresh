@@ -13,6 +13,7 @@ Sometimes web services have aggressive activity tracking and force you to login 
 ## TODO:
 
 ### App:
+* notify user that tabs should be reloaded after settings change
 * pattern editor (rename to domain for now?)
 * localizable strings with plural forms
 * keep listening to the extension state in Safari after opening safari preferences
@@ -25,18 +26,16 @@ Sometimes web services have aggressive activity tracking and force you to login 
 * window size and resizing
 
 ### Extension:
-* blue icon in toolbar if there is a rule matching this page
-* cleanup closed pages
-* ReloadController tests
+* ReloadController tests (ruleFor)
 * on app gui add a rule with prepopulated domain if no matching rule exists
+* make host calculation lazy
 
 ### Open Sourcing
 * DocC documentation
 
 ### Publishing:
-* make screenshots and description
+* write that page should be once reloaded to be taken into use!
 * publish to TestFlight
-* release to the Mac App Store
 * create a GitHub Actions TestFlight and release pipeline
 
 ### iOS 

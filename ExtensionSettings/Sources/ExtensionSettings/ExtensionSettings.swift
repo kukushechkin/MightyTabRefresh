@@ -16,6 +16,10 @@ public struct Rule: Codable, Identifiable, Equatable {
     public static func defaultRule() -> Rule {
         Rule(enabled: false, pattern: "", refreshInterval: 60.0)
     }
+    
+    public func matches(host: String) -> Bool {
+        host.contains(self.pattern)
+    }
 }
 
 // Used to transfer urls and refresh times from the app to the extension.

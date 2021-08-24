@@ -12,7 +12,11 @@ import Combine
 import ExtensionSettings
 
 let lastKnownExtensionSettingsKey = "lastKnownExtensionSettings"
-let scriptBecameActiveMessageKey = "com.kukushechkin.MightyTabRefresh.scriptBecameAvailable"
+
+let pageLoadedMessageKey         = "com.kukushechkin.MightyTabRefresh.scriptPageLoaded"
+let pageWillUnloadMessageKey     = "com.kukushechkin.MightyTabRefresh.scriptPageWillUnload"
+let pageBecameActiveMessageKey   = "com.kukushechkin.MightyTabRefresh.scriptPageBecameActive"
+let pageBecameInactiveMessageKey = "com.kukushechkin.MightyTabRefresh.scriptPageBecameInactive"
 
 extension UserDefaults {
     @objc var lastKnownExtensionSettings: Any? {
@@ -36,12 +40,18 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
     private var subscriptions = Set<AnyCancellable>()
     
+    private func selfUuid() -> String {
+        // Use for SFSafariExtensionHandler instances debugging
+        // self.id.uuidString
+        ""
+    }
+    
     override init() {
         super.init()
-        os_log(.debug, log: self.log, "[%{public}s]: init", self.id.uuidString)
+        os_log(.debug, log: self.log, "[%{public}s]: init", self.selfUuid())
         
         if Self.reloadController != nil {
-            os_log(.debug, log: self.log, "[%{public}s]: reloadController already exists", self.id.uuidString)
+            os_log(.debug, log: self.log, "[%{public}s]: reloadController already exists", self.selfUuid())
             return
         }
         Self.reloadController = ReloadController()
@@ -49,29 +59,49 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         self.defaults?
             .publisher(for: \.lastKnownExtensionSettings)
             .sink { newSettings in
-                os_log(.debug, log: self.log, "[%{public}s]: observed new settings", self.id.uuidString)
+                os_log(.debug, log: self.log, "[%{public}s]: observed new settings", self.selfUuid())
                 if let settings = newSettings as? ExtensionSettings {
-                    os_log(.debug, log: self.log, "[%{public}s]: decoded new settings: %s", self.id.uuidString, settings.rules.debugDescription)
-                    Self.reloadController?.settings = settings
+                    os_log(.debug, log: self.log, "[%{public}s]: decoded new settings: %s", self.selfUuid(), settings.rules.debugDescription)
+                    Self.reloadController?.updateSettings(settings: settings)
                 }
             }
             .store(in: &subscriptions)
     }
     
     deinit {
-        os_log(.debug, log: self.log, "[%{public}s]: dealloc", self.id.uuidString)
+        os_log(.debug, log: self.log, "[%{public}s]: dealloc", self.selfUuid())
     }
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        os_log(.debug, log: self.log, "[%{public}s]: Got event from the inject script: %{public}s", self.id.uuidString, messageName)
+        os_log(.debug, log: self.log, "[%{public}s]: Got event from the inject script: %{public}s", self.selfUuid(), messageName)
 
         weak var weakself = self
         page.getPropertiesWithCompletionHandler { properties in
             guard let self = weakself else { return }
-            os_log(.debug, log: self.log, "[%{public}s]: Injected script page with url %{public}s is now active", self.id.uuidString, properties?.url?.host ?? "<none>")
-            if messageName == scriptBecameActiveMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: will add page for %{public}s", self.id.uuidString, properties?.url?.host ?? "<none>")
-                Self.reloadController?.add(page: page)
+            guard let pageUuid = userInfo?["uuid"] as? String else {
+                os_log(.debug, log: self.log, "[%{public}s]: page did not provide uuid, ignore", self.selfUuid())
+                return
+            }
+            guard let host = properties?.url?.host else {
+                os_log(.debug, log: self.log, "[%{public}s]: blank page, ignore", self.selfUuid())
+                return
+            }
+            
+            if messageName == pageLoadedMessageKey {
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) loaded", self.selfUuid(), pageUuid, host)
+                Self.reloadController?.addPage(uuid: pageUuid, page: page)
+            }
+            if messageName == pageWillUnloadMessageKey {
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) will unload", self.selfUuid(), pageUuid, host)
+                Self.reloadController?.removePage(uuid: pageUuid)
+            }
+            if messageName == pageBecameActiveMessageKey {
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) became active", self.selfUuid(), pageUuid, host)
+                Self.reloadController?.pageBecameActive(uuid: pageUuid)
+            }
+            if messageName == pageBecameInactiveMessageKey {
+                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%{public}s) became inactive", self.selfUuid(), pageUuid, host)
+                Self.reloadController?.pageBecameInactive(uuid: pageUuid)
             }
         }
     }
@@ -86,7 +116,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         let parentBundleUrl = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
         NSWorkspace.shared.openApplication(at: parentBundleUrl, configuration: configuration) { app, error in
             if let error = error {
-                os_log(.error, log: self.log, "[%{public}s]: failed to open app: %{public}s", self.id.uuidString, error.localizedDescription)
+                os_log(.error, log: self.log, "[%{public}s]: failed to open app: %{public}s", self.selfUuid(), error.localizedDescription)
             }
         }
     }

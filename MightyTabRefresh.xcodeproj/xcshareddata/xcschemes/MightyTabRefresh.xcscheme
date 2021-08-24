@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED947B802699E47600310CBA"
-               BuildableName = "MightyTabRefresh.app"
+               BuildableName = "Mighty Tab Refresh.app"
                BlueprintName = "MightyTabRefresh"
                ReferencedContainer = "container:MightyTabRefresh.xcodeproj">
             </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED947B802699E47600310CBA"
-            BuildableName = "MightyTabRefresh.app"
+            BuildableName = "Mighty Tab Refresh.app"
             BlueprintName = "MightyTabRefresh"
             ReferencedContainer = "container:MightyTabRefresh.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED947B802699E47600310CBA"
-            BuildableName = "MightyTabRefresh.app"
+            BuildableName = "Mighty Tab Refresh.app"
             BlueprintName = "MightyTabRefresh"
             ReferencedContainer = "container:MightyTabRefresh.xcodeproj">
          </BuildableReference>
