@@ -12,8 +12,8 @@ Sometimes web services have aggressive activity tracking and force you to log in
 
 ## Features
 
-* Separate GUI for editing rules (currently — it is a match if page URL host contains rule string)
-* Fancy logic for figuring out is page is currently visible to avoid reloading right under your nose
-* Open the app with rules editor from the Safari toolbar or vice versa
-* Open Source development — you can check that app does not do anything with the pages or send URLs you visit to a cloud
-* 818.2 KB of size, no, really, under 1 MB
+- Separate GUI for editing rules (currently — it is a match if page URL host contains rule string)
+- Fancy logic for figuring out is page is currently visible to avoid reloading right under your nose
+- Open the app with rules editor from the Safari toolbar or vice versa
+- Open Source development — you can check that app does not do anything with the pages or send URLs you visit to a cloud
+- 818.2 KB of size, no, really, under 1 MB
