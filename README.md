@@ -1,6 +1,7 @@
 # MightyTabRefresh
 
 [![Xcode build](https://github.com/kukushechkin/MightyTabRefresh/actions/workflows/xcode.yml/badge.svg?branch=main)](https://github.com/kukushechkin/MightyTabRefresh/actions/workflows/xcode.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5e328c582bc64e89b97dfcbdfbe89534)](https://www.codacy.com/gh/kukushechkin/MightyTabRefresh/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kukushechkin/MightyTabRefresh&amp;utm_campaign=Badge_Grade)
 
 ## What is this
 
