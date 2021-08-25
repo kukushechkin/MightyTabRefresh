@@ -22,6 +22,4 @@ struct ExtensionControllerMock: ExtensionControllerProtocol {
     func sendSettingsToExtension(name: String, settings: [String: Any]) {
         //
     }
-
-
 }
