@@ -6,6 +6,14 @@
 //
 
 import SwiftUI
+import AppKit
+
+// required to close app on last window close
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+}
 
 struct ContentView: View {
     @EnvironmentObject private var extensionController: ExtensionViewModel
@@ -21,6 +29,8 @@ struct ContentView: View {
 
 @main
 struct MightyTabRefreshApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     @StateObject var extensionController = ExtensionViewModel(extensionController: ExtensionController(extensionIdentifier: "com.kukushechkin.MightyTabRefresh.Extension"))
     
     var body: some Scene {
