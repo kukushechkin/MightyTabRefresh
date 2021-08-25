@@ -41,7 +41,7 @@ public extension ExtensionSettings {
 //    }
     
     mutating func add(rule: Rule = Rule.defaultRule()) {
-        self.rules = self.rules + [rule]
+        self.rules += [rule]
     }
 }
 

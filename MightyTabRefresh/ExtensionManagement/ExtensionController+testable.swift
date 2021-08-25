@@ -19,7 +19,7 @@ struct ExtensionControllerMock: ExtensionControllerProtocol {
         //
     }
     
-    func sendSettingsToExtension(name: String, settings: [String : Any]) {
+    func sendSettingsToExtension(name: String, settings: [String: Any]) {
         //
     }
     

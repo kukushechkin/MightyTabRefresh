@@ -41,7 +41,7 @@ internal class ExtensionViewModel: ObservableObject {
             self.settings = ExtensionSettings(rules: [
                 Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
                 Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-                Rule(enabled: false, pattern: "google.com", refreshInterval: 60.0),
+                Rule(enabled: false, pattern: "google.com", refreshInterval: 60.0)
             ])
         }
         
@@ -51,7 +51,6 @@ internal class ExtensionViewModel: ObservableObject {
         self.observeItems(propertyToObserve: self.$settings)
     }
     
-    // TODO: move to a category/whatever
     // https://stackoverflow.com/questions/63479425/observing-a-published-var-from-another-object
     var itemObserver: AnyCancellable?
     func observeItems<P: Publisher>(propertyToObserve: P) where P.Output == ExtensionSettings, P.Failure == Never {

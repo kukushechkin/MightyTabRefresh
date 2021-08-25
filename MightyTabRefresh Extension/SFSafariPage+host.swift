@@ -18,21 +18,19 @@ fileprivate func syncAsync<T>(defaultError: T, body: (@escaping (T) -> Void) -> 
         group.leave()
     }
     
-    let _ = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(10))
+    _ = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(10))
     return result
 }
 
 public extension SFSafariPage {
     var host: String {
-        get {
-            syncAsync(defaultError: "") { done in
-                self.getPropertiesWithCompletionHandler { properties in
-                    if let host = properties?.url?.host {
-                        done(host)
-                        return
-                    }
-                    done("")
+        syncAsync(defaultError: "") { done in
+            self.getPropertiesWithCompletionHandler { properties in
+                if let host = properties?.url?.host {
+                    done(host)
+                    return
                 }
+                done("")
             }
         }
     }

@@ -72,7 +72,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         os_log(.debug, log: self.log, "[%{public}s]: dealloc", self.selfUuid())
     }
     
-    override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
+    override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String: Any]?) {
         os_log(.debug, log: self.log, "[%{public}s]: Got event from the inject script: %{public}s", self.selfUuid(), messageName)
 
         weak var weakself = self
@@ -106,7 +106,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     }
 
-    override func messageReceivedFromContainingApp(withName messageName: String, userInfo: [String : Any]? = nil) {
+    override func messageReceivedFromContainingApp(withName messageName: String, userInfo: [String: Any]? = nil) {
         // Settings arrive only through shared UserDefaults to avoid switching focus to Safari
     }
     
@@ -114,7 +114,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         let configuration = NSWorkspace.OpenConfiguration()
         configuration.activates = true
         let parentBundleUrl = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
-        NSWorkspace.shared.openApplication(at: parentBundleUrl, configuration: configuration) { app, error in
+        NSWorkspace.shared.openApplication(at: parentBundleUrl, configuration: configuration) { _, error in
             if let error = error {
                 os_log(.error, log: self.log, "[%{public}s]: failed to open app: %{public}s", self.selfUuid(), error.localizedDescription)
             }

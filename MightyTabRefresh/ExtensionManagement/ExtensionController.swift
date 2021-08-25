@@ -43,12 +43,12 @@ class ExtensionController: ExtensionControllerProtocol {
     }
     
     func openSafariPreferences() {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: self.extensionIdentifier) { error in
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: self.extensionIdentifier) { _ in
             // Should there be a callback to close the app?
         }
     }
     
-    func sendSettingsToExtension(name: String, settings: [String : Any]) {
+    func sendSettingsToExtension(name: String, settings: [String: Any]) {
         // This switches focus to Safari => cannot be used
         SFSafariApplication.dispatchMessage(withName: name,
                                             toExtensionWithIdentifier: self.extensionIdentifier,
@@ -62,4 +62,3 @@ class ExtensionController: ExtensionControllerProtocol {
     
     
 }
-

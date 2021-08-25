@@ -15,10 +15,10 @@ import ExtensionSettings
 struct PageReloadingObject {
     /// page object
     let page: SFSafariPage
-    
+
     /// the most frequent rule for this page
     var rule: Rule?
-    
+
     /// active timer, if nil there is user activity on the page
     var timer: Timer?
 }
@@ -26,10 +26,10 @@ struct PageReloadingObject {
 class ReloadController {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ReloadController")
     private let queue = DispatchQueue(label: "com.kukushechkin.MightyTabRefresh.extension.queue")
-    
+
     private var trackedPages: [String: PageReloadingObject] = [:]
     private var settings: ExtensionSettings?
-    
+
     func updateSettings(settings: ExtensionSettings) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
@@ -37,6 +37,7 @@ class ReloadController {
             self.trackedPages.keys.forEach { uuid in
                 guard var trackedPage = self.trackedPages[uuid],
                       let _ = trackedPage.timer else { return }
+                
                 trackedPage.timer?.invalidate()
                 trackedPage.timer = nil
                 trackedPage.rule = self.ruleFor(page: trackedPage.page)
@@ -46,7 +47,7 @@ class ReloadController {
             }
         }
     }
-    
+
     func addPage(uuid: String, page: SFSafariPage) {
         self.queue.async { [weak self] in
             guard let self = self else { return }

@@ -23,8 +23,8 @@ struct RulesListView: View {
                     Spacer()
                         .frame(width: 50, height: 0, alignment: .leading)
                     DeleteItemButtonView {
-                        self.rules.removeAll { r in
-                            r.id == rule.id
+                        self.rules.removeAll { existingRule in
+                            existingRule.id == rule.id
                         }
                     }
                 }
