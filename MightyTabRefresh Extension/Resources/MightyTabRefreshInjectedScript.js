@@ -1,13 +1,4 @@
 (function() {
-    function mightyLog(message) {
-        console.log("Mighty Tab Refresh: " + message);
-    }
-
-    function handleMessage(event) {
-        mightyLog(event.name);
-        mightyLog(event.message);
-    }
-
     // https://gist.github.com/jed/982883
     function uuidv4() {
       return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
