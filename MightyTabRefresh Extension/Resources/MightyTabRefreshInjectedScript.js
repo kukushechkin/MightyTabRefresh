@@ -26,7 +26,7 @@
 
     /////////////////////////////////////////////////////////////////////////////////////
     
-    let pageUuid = uuidv4();
+    const pageUuid = uuidv4();
     document.addEventListener("DOMContentLoaded", function(event) {
         safari.self.addEventListener("message", handleMessage);
         safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageLoaded", { "uuid": pageUuid });
