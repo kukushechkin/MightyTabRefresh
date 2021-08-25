@@ -8,16 +8,16 @@
 import Foundation
 import SafariServices
 
-fileprivate func syncAsync<T>(defaultError: T, body: (@escaping (T) -> Void) -> Void) -> T {
+private func syncAsync<T>(defaultError: T, body: (@escaping (T) -> Void) -> Void) -> T {
     var result: T = defaultError
     let group = DispatchGroup()
     group.enter()
-    
+
     body {
         result = $0
         group.leave()
     }
-    
+
     _ = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(10))
     return result
 }

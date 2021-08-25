@@ -11,7 +11,7 @@ import ExtensionSettings
 
 struct RulesListView: View {
     @Binding var rules: [Rule]
-    
+
     var body: some View {
         ForEach(self.rules, id: \.id) { rule in
             HStack {
@@ -50,7 +50,7 @@ struct NoRulesView: View {
 
 struct SettingsView: View {
     @Binding var extensionSettings: ExtensionSettings
-    
+
     var body: some View {
         List {
             if self.extensionSettings.rules.count <= 1 {
@@ -63,7 +63,7 @@ struct SettingsView: View {
             Button(action: add) { Label("", systemImage: "plus") }
         }
     }
-    
+
     func add() {
         self.extensionSettings.add()
     }
@@ -75,20 +75,20 @@ struct SettingsView_Previews: PreviewProvider {
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
                 Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
                 Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0)
             ])))
                 .environment(\.colorScheme, .light)
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
                 Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
                 Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0)
             ])))
                 .environment(\.colorScheme, .dark)
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
             ])))
                 .environment(\.colorScheme, .light)
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
-                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0)
             ])))
                 .environment(\.colorScheme, .light)
         }

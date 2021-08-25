@@ -23,11 +23,11 @@ protocol ExtensionControllerProtocol {
 class ExtensionController: ExtensionControllerProtocol {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ExtensionController")
     private let extensionIdentifier: String
-    
+
     init(extensionIdentifier: String) {
         self.extensionIdentifier = extensionIdentifier
     }
-    
+
     func getState(_ callback: @escaping (ExtensionState) -> Void) {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: self.extensionIdentifier) { [weak self] (state, error) in
             guard let self = self else { return }
@@ -36,18 +36,18 @@ class ExtensionController: ExtensionControllerProtocol {
                 callback(.disabled)
                 return
             }
-            
+
             os_log(.info, log: self.log, "New Safari App Extension %{public}s state: %d", self.extensionIdentifier, unwrappedState.isEnabled)
             callback(unwrappedState.isEnabled ? .enabled : .disabled)
         }
     }
-    
+
     func openSafariPreferences() {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: self.extensionIdentifier) { _ in
             // Should there be a callback to close the app?
         }
     }
-    
+
     func sendSettingsToExtension(name: String, settings: [String: Any]) {
         // This switches focus to Safari => cannot be used
         SFSafariApplication.dispatchMessage(withName: name,
@@ -59,6 +59,6 @@ class ExtensionController: ExtensionControllerProtocol {
             }
         }
     }
-    
-    
+
+
 }

@@ -26,6 +26,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "ExtensionSettingsTests",
-            dependencies: ["ExtensionSettings"]),
+            dependencies: ["ExtensionSettings"])
     ]
 )

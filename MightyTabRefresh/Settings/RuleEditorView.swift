@@ -15,7 +15,7 @@ struct RuleEditorView: View {
     @State var rulePattern: String
     @State var ruleRefreshInterval: Double
     @State var isEditingSlider = false
-    
+
     var body: some View {
         HStack {
             CheckBoxView(checked: $rule.enabled)
@@ -35,7 +35,7 @@ struct RuleEditorView: View {
                     Text("update every \(Int(self.ruleRefreshInterval)) sec")
                         .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
                 }
-                
+
             }
             .disabled(!rule.enabled)
         }

@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 struct ContentView: View {
     @EnvironmentObject private var extensionController: ExtensionViewModel
-    
+
     var body: some View {
         VStack {
             ControlsView()
@@ -32,7 +32,7 @@ struct MightyTabRefreshApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     @StateObject var extensionController = ExtensionViewModel(extensionController: ExtensionController(extensionIdentifier: "com.kukushechkin.MightyTabRefresh.Extension"))
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()

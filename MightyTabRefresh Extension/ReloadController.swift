@@ -37,7 +37,7 @@ class ReloadController {
             self.trackedPages.keys.forEach { uuid in
                 guard var trackedPage = self.trackedPages[uuid],
                       let _ = trackedPage.timer else { return }
-                
+
                 trackedPage.timer?.invalidate()
                 trackedPage.timer = nil
                 trackedPage.rule = self.ruleFor(page: trackedPage.page)
@@ -57,7 +57,7 @@ class ReloadController {
             os_log(.debug, log: self.log, "pages registered: %d", self.trackedPages.count)
         }
     }
-    
+
     func removePage(uuid: String) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
@@ -66,7 +66,7 @@ class ReloadController {
             self.trackedPages[uuid] = nil
         }
     }
-    
+
     func pageBecameActive(uuid: String) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
@@ -75,7 +75,7 @@ class ReloadController {
             self.trackedPages[uuid]?.timer = nil
         }
     }
-    
+
     func pageBecameInactive(uuid: String) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
@@ -87,9 +87,9 @@ class ReloadController {
             }
         }
     }
-    
+
     // MARK: - private
-    
+
     private func setupTimerFor(uuid: String, rule: Rule, page: SFSafariPage) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -100,14 +100,14 @@ class ReloadController {
             }
         }
     }
-  
+
     private func ruleFor(page: SFSafariPage) -> Rule? {
         let pageHost = page.host
         let rule = self.settings?.rules.reduce(nil as Rule?, { partialResult, rule in
             if !rule.enabled || rule.pattern.isEmpty {
                 return partialResult
             }
-            
+
             // comparing TimeIntervals is cheap, matching patterns is expensive
             if let partialResult = partialResult {
                 if partialResult.refreshInterval < rule.refreshInterval {
@@ -125,7 +125,7 @@ class ReloadController {
         } else {
             os_log(.debug, log: self.log, "no rule match page host %s", pageHost)
         }
-        
+
         return rule
     }
 }

@@ -5,18 +5,18 @@ public struct Rule: Codable, Identifiable, Equatable {
     public var enabled: Bool
     public var pattern: String
     public var refreshInterval: TimeInterval
-    
+
     public init(enabled: Bool, pattern: String, refreshInterval: TimeInterval) {
         self.id = UUID()
         self.enabled = enabled
         self.pattern = pattern
         self.refreshInterval = refreshInterval
     }
-    
+
     public static func defaultRule() -> Rule {
         Rule(enabled: false, pattern: "", refreshInterval: 60.0)
     }
-    
+
     public func matches(host: String) -> Bool {
         host.contains(self.pattern)
     }
@@ -25,7 +25,7 @@ public struct Rule: Codable, Identifiable, Equatable {
 // Used to transfer urls and refresh times from the app to the extension.
 public struct ExtensionSettings: Codable {
     public var rules: [Rule] = []
-    
+
     public init(rules: [Rule]) {
         // Workaround for ForEach List
         self.rules = rules + [Rule.defaultRule()]
@@ -39,7 +39,7 @@ public extension ExtensionSettings {
 //            r.id != rule.id
 //        }
 //    }
-    
+
     mutating func add(rule: Rule = Rule.defaultRule()) {
         self.rules += [rule]
     }
@@ -54,7 +54,7 @@ public extension ExtensionSettings {
         }
         self.rules = decoded.rules
     }
-    
+
     func encode() throws -> Any {
         let jsonData = try JSONEncoder().encode(self)
         return try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)

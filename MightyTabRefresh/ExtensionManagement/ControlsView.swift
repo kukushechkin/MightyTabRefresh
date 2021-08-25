@@ -11,7 +11,7 @@ import ExtensionSettings
 
 struct ControlsView: View {
     @EnvironmentObject  var extensionViewModel: ExtensionViewModel
-    
+
     var body: some View {
         HStack {
         }
@@ -36,7 +36,7 @@ struct ControlsView: View {
 struct ControlsView_Previews: PreviewProvider {
     static let enabledExtension = ExtensionViewModel(extensionController: ExtensionControllerMock(enabled: true))
     static let disabledExtension = ExtensionViewModel(extensionController: ExtensionControllerMock(enabled: false))
-    
+
     static var previews: some View {
         VStack {
             Group {
@@ -46,9 +46,9 @@ struct ControlsView_Previews: PreviewProvider {
                     .environmentObject(self.disabledExtension)
             }
             .environment(\.colorScheme, .light)
-            
+
             Divider()
-            
+
             Group {
                 ControlsView()
                     .environmentObject(self.enabledExtension)

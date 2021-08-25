@@ -20,19 +20,19 @@ internal class ExtensionViewModel: ObservableObject {
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
     private var timer: Timer?
     private var timerCancelTimer: Timer?
-    
+
     private let extensionStateUpdateInterval = 1.0
     private let extensionStateUpdateCancelInterval = 15.0
-    
+
     private let extensionController: ExtensionControllerProtocol
-    
+
     @Published var enabled: Bool
     @Published var settings: ExtensionSettings
-        
+
     internal init(extensionController: ExtensionControllerProtocol) {
         self.extensionController = extensionController
         self.enabled = defaults?.bool(forKey: lastKnownExtensionStateKey) ?? false
-            
+
         if let persistentData = defaults?.object(forKey: lastKnownExtensionSettingsKey),
            let settings = ExtensionSettings(from: persistentData) {
             self.settings = settings
@@ -44,13 +44,13 @@ internal class ExtensionViewModel: ObservableObject {
                 Rule(enabled: false, pattern: "google.com", refreshInterval: 60.0)
             ])
         }
-        
+
         // Will ask Safari for a state update
         self.updateState()
-        
+
         self.observeItems(propertyToObserve: self.$settings)
     }
-    
+
     // https://stackoverflow.com/questions/63479425/observing-a-published-var-from-another-object
     var itemObserver: AnyCancellable?
     func observeItems<P: Publisher>(propertyToObserve: P) where P.Output == ExtensionSettings, P.Failure == Never {
@@ -61,7 +61,7 @@ internal class ExtensionViewModel: ObservableObject {
                 self.updateSettings()
             }
     }
-    
+
     internal func updateState() {
         self.extensionController.getState { state in
             DispatchQueue.main.async {
@@ -69,7 +69,7 @@ internal class ExtensionViewModel: ObservableObject {
             }
         }
     }
-    
+
     internal func openSafariPreferences() {
         DispatchQueue.main.async {
             os_log(.info, log: self.log, "will start monitoring extension state")
@@ -77,7 +77,7 @@ internal class ExtensionViewModel: ObservableObject {
             self.timer = Timer.scheduledTimer(withTimeInterval: self.extensionStateUpdateInterval, repeats: true) { _ in
                 self.updateState()
             }
-            
+
             // \(self.extensionStateUpdateCancelInterval) secs of CPU load for the better UX
             self.timerCancelTimer = Timer.scheduledTimer(withTimeInterval: self.extensionStateUpdateCancelInterval, repeats: false) { _ in
                 self.timer?.invalidate()
@@ -88,7 +88,7 @@ internal class ExtensionViewModel: ObservableObject {
         }
         self.extensionController.openSafariPreferences()
     }
-    
+
     internal func updateSettings() {
         do {
             try self.defaults?.set(self.settings.encode(), forKey: lastKnownExtensionSettingsKey)
@@ -96,10 +96,10 @@ internal class ExtensionViewModel: ObservableObject {
             os_log(.error, log: self.log, "error saving settings: %{public}s", error.localizedDescription)
         }
         os_log(.info, log: self.log, "Saved new settings in shared defaults")
-        
+
         // This will remove focus from the app and activate Safari which is not a good experience during editing
         // Relying only on UserDefaults to transfer settings
-        
+
 //        os_log(.info, log: self.log, "Will send settings to Safari App Extension")
 //        guard let encodedSettings = try? self.settings.encode() else {
 //            os_log(.error, log: self.log, "Failed to encode settings to json")

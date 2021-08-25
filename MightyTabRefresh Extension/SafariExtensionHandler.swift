@@ -34,28 +34,28 @@ extension UserDefaults {
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     static private var reloadController: ReloadController?
-    
+
     private let id = UUID()
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "SafariExtensionHandler")
     private let defaults = UserDefaults(suiteName: "AC5986BBE6.com.kukushechkin.MightyTabRefresh.appGroup")
     private var subscriptions = Set<AnyCancellable>()
-    
+
     private func selfUuid() -> String {
         // Use for SFSafariExtensionHandler instances debugging
         // self.id.uuidString
         ""
     }
-    
+
     override init() {
         super.init()
         os_log(.debug, log: self.log, "[%{public}s]: init", self.selfUuid())
-        
+
         if Self.reloadController != nil {
             os_log(.debug, log: self.log, "[%{public}s]: reloadController already exists", self.selfUuid())
             return
         }
         Self.reloadController = ReloadController()
-        
+
         self.defaults?
             .publisher(for: \.lastKnownExtensionSettings)
             .sink { newSettings in
@@ -67,11 +67,11 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             }
             .store(in: &subscriptions)
     }
-    
+
     deinit {
         os_log(.debug, log: self.log, "[%{public}s]: dealloc", self.selfUuid())
     }
-    
+
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String: Any]?) {
         os_log(.debug, log: self.log, "[%{public}s]: Got event from the inject script: %{public}s", self.selfUuid(), messageName)
 
@@ -86,7 +86,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 os_log(.debug, log: self.log, "[%{public}s]: blank page, ignore", self.selfUuid())
                 return
             }
-            
+
             if messageName == pageLoadedMessageKey {
                 os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) loaded", self.selfUuid(), pageUuid, host)
                 Self.reloadController?.addPage(uuid: pageUuid, page: page)
@@ -109,7 +109,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func messageReceivedFromContainingApp(withName messageName: String, userInfo: [String: Any]? = nil) {
         // Settings arrive only through shared UserDefaults to avoid switching focus to Safari
     }
-    
+
     override func toolbarItemClicked(in window: SFSafariWindow) {
         let configuration = NSWorkspace.OpenConfiguration()
         configuration.activates = true
@@ -120,12 +120,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             }
         }
     }
-    
+
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
         // This is called when Safari's state changed in some way that would require the extension's toolbar item to be validated again.
         validationHandler(true, "")
     }
-    
+
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
