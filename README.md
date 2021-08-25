@@ -8,12 +8,12 @@ An app that will automatically reload specific web pages in Safari. And it is [a
 
 ## Why?
 
-Sometimes web services have aggressive activity tracking and force you to login every e.g. hour of inactivity on the page. If this is some internal resource like Jira this may be very inconvenient to go through 2fa several times per day.
+Sometimes web services have aggressive activity tracking and force you to log in every e.g. hour of inactivity on the page. If this is some internal resource like Jira this may be very inconvenient to go through 2fa several times per day.
 
 ## Features
 
-* Separate GUI for editing rules (currently — it is a match if page url host contains rule string)
-* Fancy logic for figuring out is page is currently visible to avoid reloading right under you nose
+* Separate GUI for editing rules (currently — it is a match if page URL host contains rule string)
+* Fancy logic for figuring out is page is currently visible to avoid reloading right under your nose
 * Open the app with rules editor from the Safari toolbar or vice versa
-* Open Source development — you can check that app does not do anything with the pages or send urls you visit to the cloud
+* Open Source development — you can check that app does not do anything with the pages or send URLs you visit to a cloud
 * 818.2 KB of size, no, really, under 1 MB
