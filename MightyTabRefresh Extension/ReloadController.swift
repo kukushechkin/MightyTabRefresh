@@ -93,7 +93,7 @@ class ReloadController {
     private func setupTimerFor(uuid: String, rule: Rule, page: SFSafariPage) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            os_log(.debug, log: self.log, "will set timer for %{public}s (%s) with interval %d", uuid, page.host, rule.refreshInterval)
+            os_log(.debug, log: self.log, "will set timer for %{public}s (%s) with interval %f", uuid, page.host, rule.refreshInterval)
             self.trackedPages[uuid]?.timer = Timer.scheduledTimer(withTimeInterval: rule.refreshInterval, repeats: true) { _ in
                 os_log(.debug, log: self.log, "firing timer for page %{public}s (%s) with rule %{public}s", uuid, rule.pattern, page.host)
                 page.reload()
