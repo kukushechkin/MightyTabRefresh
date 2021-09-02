@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 import ExtensionSettings
+import NonLinearSlider
 
 struct RuleEditorView: View {
     @Binding var rule: Rule
@@ -26,16 +27,11 @@ struct RuleEditorView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Spacer()
                     .frame(width: 50, height: 0, alignment: .leading)
-                Slider(value: $ruleRefreshInterval, in: 10...3600, onEditingChanged: { editing in
-                    if self.isEditingSlider && !editing {
-                        self.rule.refreshInterval = self.ruleRefreshInterval
-                    }
-                    self.isEditingSlider = editing
-                }) {
-                    Text("update every \(Int(self.ruleRefreshInterval)) sec")
-                        .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
+                Text("update every \(Int(self.ruleRefreshInterval)) sec")
+                    .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
+                NonLinearSlider(value: self.$ruleRefreshInterval, type: .parabolic) { _ in } onSubmit: {
+                    self.rule.refreshInterval = self.ruleRefreshInterval
                 }
-
             }
             .disabled(!rule.enabled)
         }

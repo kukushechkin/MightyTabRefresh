@@ -33,6 +33,7 @@
 		EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A426A620EA001BE768 /* ControlsView.swift */; };
 		EDD142C4269B07FD0099470F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C3269B07FD0099470F /* .github */; };
 		EDD142C6269B08B60099470F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C5269B08B60099470F /* README.md */; };
+		EDE3421026D95A0D00ADCBDA /* NonLinearSlider in Frameworks */ = {isa = PBXBuildFile; productRef = EDE3420F26D95A0D00ADCBDA /* NonLinearSlider */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		EDC341A426A620EA001BE768 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		EDD142C3269B07FD0099470F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		EDD142C5269B08B60099470F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EDE3420E26D9576100ADCBDA /* NonLinearSlider */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NonLinearSlider; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDE3421026D95A0D00ADCBDA /* NonLinearSlider in Frameworks */,
 				ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +174,7 @@
 				ED7378FC26D2D99D00A87A5D /* PrivacyPolicy.txt */,
 				EDD142C3269B07FD0099470F /* .github */,
 				ED947C4F269B051200310CBA /* .gitignore */,
+				EDE3420E26D9576100ADCBDA /* NonLinearSlider */,
 				ED947C4E269B031100310CBA /* ExtensionSettings */,
 				ED947B832699E47600310CBA /* MightyTabRefresh */,
 				ED947BA92699E47800310CBA /* MightyTabRefreshUITests */,
@@ -272,6 +276,7 @@
 			name = MightyTabRefresh;
 			packageProductDependencies = (
 				ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */,
+				EDE3420F26D95A0D00ADCBDA /* NonLinearSlider */,
 			);
 			productName = MightyTabRefresh;
 			productReference = ED947B812699E47600310CBA /* Mighty Tab Refresh.app */;
@@ -908,6 +913,10 @@
 		ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ExtensionSettings;
+		};
+		EDE3420F26D95A0D00ADCBDA /* NonLinearSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NonLinearSlider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
