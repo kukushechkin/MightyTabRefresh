@@ -29,7 +29,6 @@ struct RuleEditorView: View {
                 Spacer()
                     .frame(width: 50, height: 0, alignment: .leading)
 
-                // TODO: more reasonable default value?
                 Text(refreshIntervalFormatter.string(for: self.ruleRefreshInterval) ?? "-")
                     .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
 
