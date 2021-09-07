@@ -21,9 +21,7 @@ public struct NonLinearSlider: View {
     }
 
     public var body: some View {
-        Slider(value: self.$x, in: 1...15) {
-            // content
-        } onEditingChanged: { editing in
+        Slider(value: self.$x, in: 1...15) { editing in
             self.onEditingChanged(editing)
             if self.isEditing && !editing {
                 self.onSubmit()
