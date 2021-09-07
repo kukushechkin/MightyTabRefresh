@@ -27,7 +27,7 @@ public struct NonLinearSlider: View {
                 self.onSubmit()
             }
             self.isEditing = editing
-        }.onChange(of: self.x) { newValue in
+        }.onChange(of: self.x) { _ in
             DispatchQueue.main.async {
                 self.value = self.valueTransformFunction.value(self.x)
             }
@@ -38,7 +38,7 @@ public struct NonLinearSlider: View {
 struct NonLinearSlider_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NonLinearSlider(value: .constant(0.0), type: .linear) { editing in
+            NonLinearSlider(value: .constant(0.0), type: .linear) { _ in
                 //
             } onSubmit: {
                 //
@@ -46,7 +46,7 @@ struct NonLinearSlider_Previews: PreviewProvider {
         }.environment(\.colorScheme, .light)
 
         Group {
-            NonLinearSlider(value: .constant(0.0), type: .linear) { editing in
+            NonLinearSlider(value: .constant(0.0), type: .linear) { _ in
                 //
             } onSubmit: {
                 //
