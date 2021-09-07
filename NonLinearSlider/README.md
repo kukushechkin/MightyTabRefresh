@@ -1,3 +1,4 @@
-# NonLinearSlider
+# Non-linear SwiftUI Slider
 
-A description of this package.
+A simple SwiftUI slider implementation providing non-linear values.
+

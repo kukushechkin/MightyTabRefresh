@@ -39,11 +39,11 @@ internal struct LinearFunction: SliderFunctionProtocol {
 
 internal struct ParabolicFunction: SliderFunctionProtocol {
     func value(_ x: Double) -> Double {
-        x * x
+        x * x * x * x
     }
 
     func inverseValue(_ y: Double) -> Double {
-        sqrt(y)
+        sqrt(sqrt(y))
     }
 }
 
