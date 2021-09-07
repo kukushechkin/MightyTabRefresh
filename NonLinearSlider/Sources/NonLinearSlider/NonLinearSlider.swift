@@ -44,7 +44,7 @@ struct NonLinearSlider_Previews: PreviewProvider {
                 //
             }
         }.environment(\.colorScheme, .light)
-        
+
         Group {
             NonLinearSlider(value: .constant(0.0), type: .linear) { editing in
                 //

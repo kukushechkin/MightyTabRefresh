@@ -11,7 +11,7 @@ public enum SliderType {
         _ = ParabolicFunction()
         _ = HyperbolicFunction()
 
-        switch(type) {
+        switch type {
         case .linear:
             return LinearFunction()
         case .parabolic:
