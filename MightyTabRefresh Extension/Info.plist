@@ -33,6 +33,6 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableDescription</key>
-	<string>This is MightyTabRefresh Extension. It will automatically reload specific web pages in Safari based on settings in the parent app.</string>
+	<string>This is MightyTabRefresh Extension. It will automatically reload specific web pages in Safari based on settings in the parent app. Please, reload pages to start timers after activating the extension.</string>
 </dict>
 </plist>

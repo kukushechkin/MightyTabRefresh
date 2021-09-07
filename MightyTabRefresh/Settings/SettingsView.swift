@@ -39,7 +39,7 @@ struct NoRulesView: View {
             Spacer()
             HStack {
                 Spacer()
-                Text("Press \"+\" to add your first rule for some domain and interval to update ")
+                Text("Press \"+\" to add your first rule for some domain and interval to update. After extension is activated in Safari, pages need to be reloaded to start timer and start handling rules changes.")
                     .foregroundColor(Color(NSColor.disabledControlTextColor))
                 Spacer()
             }
