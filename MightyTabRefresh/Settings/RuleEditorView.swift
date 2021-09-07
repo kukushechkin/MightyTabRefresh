@@ -16,6 +16,7 @@ struct RuleEditorView: View {
     @State var rulePattern: String
     @State var ruleRefreshInterval: Double
     @State var isEditingSlider = false
+    let refreshIntervalFormatter = RefreshIntervalFormatter()
 
     var body: some View {
         HStack {
@@ -27,8 +28,11 @@ struct RuleEditorView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Spacer()
                     .frame(width: 50, height: 0, alignment: .leading)
-                Text("update every \(Int(self.ruleRefreshInterval)) sec")
+
+                // TODO: more reasonable default value?
+                Text(refreshIntervalFormatter.string(for: self.ruleRefreshInterval) ?? "-")
                     .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
+
                 NonLinearSlider(value: self.$ruleRefreshInterval, type: .parabolic) { _ in } onSubmit: {
                     self.rule.refreshInterval = self.ruleRefreshInterval
                 }
