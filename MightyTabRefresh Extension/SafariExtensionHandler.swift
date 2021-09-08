@@ -33,7 +33,7 @@ extension UserDefaults {
 }
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
-    static private var reloadController: ReloadController?
+    static private var reloadController: ReloadController<SafariPageWrapper>?
 
     private let id = UUID()
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "SafariExtensionHandler")
@@ -84,13 +84,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             }
 
             if messageName == pageWillUnloadMessageKey {
-                Self.reloadController?.removePage(page: page)
+                Self.reloadController?.removePage(page: SafariPageWrapper(page: page))
             }
             if messageName == pageBecameActiveMessageKey {
-                Self.reloadController?.pageBecameActive(page: page)
+                Self.reloadController?.pageBecameActive(page: SafariPageWrapper(page: page))
             }
             if messageName == pageBecameInactiveMessageKey {
-                Self.reloadController?.pageBecameInactive(page: page)
+                Self.reloadController?.pageBecameInactive(page: SafariPageWrapper(page: page))
             }
         }
     }

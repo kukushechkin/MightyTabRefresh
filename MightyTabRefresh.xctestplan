@@ -1,0 +1,40 @@
+{
+  "configurations" : [
+    {
+      "id" : "FF1C1723-28D5-4FCA-BDC8-FA560D396172",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "addressSanitizer" : {
+      "enabled" : true
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MightyTabRefresh.xcodeproj",
+      "identifier" : "ED947B802699E47600310CBA",
+      "name" : "MightyTabRefresh"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MightyTabRefresh.xcodeproj",
+        "identifier" : "ED947B9B2699E47800310CBA",
+        "name" : "MightyTabRefreshTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:MightyTabRefresh.xcodeproj",
+        "identifier" : "ED947BA52699E47800310CBA",
+        "name" : "MightyTabRefreshUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

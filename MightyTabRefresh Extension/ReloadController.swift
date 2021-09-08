@@ -11,10 +11,15 @@ import os.log
 
 import ExtensionSettings
 
+enum PageReloadingObjectState {
+    case active
+    case inactive
+}
+
 /// Holds information of what page when should be reloaded
-class PageReloadingObject {
-    /// page object
-    let page: SFSafariPage
+class PageReloadingObject<T: SafariPageWrapperProtocol>  {
+    /// page wrapper
+    let page: T
 
     /// the most frequent rule for this page
     var rule: Rule?
@@ -22,18 +27,22 @@ class PageReloadingObject {
     /// active timer, if nil there is user activity on the page
     var timer: Timer?
 
-    init(page: SFSafariPage, rule: Rule?, timer: Timer?) {
+    /// is user currently at this page
+    var state: PageReloadingObjectState
+
+    init(page: T, rule: Rule?, timer: Timer?, state: PageReloadingObjectState) {
         self.page = page
         self.rule = rule
         self.timer = timer
+        self.state = state
     }
 }
 
-class ReloadController {
+class ReloadController<T: SafariPageWrapperProtocol & Hashable> {
     private let log = OSLog(subsystem: "com.kukushechkin.MightyTabRefresh", category: "ReloadController")
     private let queue = DispatchQueue(label: "com.kukushechkin.MightyTabRefresh.extension.queue")
 
-    private var trackedPages: [SFSafariPage: PageReloadingObject] = [:]
+    private var trackedPages: [T: PageReloadingObject<T>] = [:]
     private var settings: ExtensionSettings?
 
     func updateSettings(settings: ExtensionSettings) {
@@ -42,18 +51,21 @@ class ReloadController {
             self.settings = settings
             self.trackedPages.forEach { (safariPage, pageObject) in
                 if pageObject.timer != nil {
+                    // invalidate timers for all pages with timers
                     pageObject.timer?.invalidate()
                     pageObject.timer = nil
-                    pageObject.rule = self.ruleFor(page: safariPage)
-                    if let rule = pageObject.rule {
-                        self.setupTimerFor(rule: rule, page: safariPage)
-                    }
+                    // start new timers only for pages having timers before
+                }
+                pageObject.rule = self.ruleFor(page: safariPage)
+                if let rule = pageObject.rule,
+                   pageObject.state == .inactive {
+                    self.setupTimerFor(rule: rule, page: safariPage)
                 }
             }
         }
     }
 
-    func removePage(page: SFSafariPage) {
+    func removePage(page: T) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
             if self.trackedPages[page] == nil {
@@ -70,10 +82,10 @@ class ReloadController {
         }
     }
 
-    func pageBecameActive(page: SFSafariPage) {
+    func pageBecameActive(page: T) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
-            self.addPageIfNeeded(page: page)
+            self.addPageIfNeeded(page: page, state: .active)
 
             os_log(.debug, log: self.log, "page (%s) became active", page.host)
             self.trackedPages[page]?.timer?.invalidate()
@@ -81,10 +93,10 @@ class ReloadController {
         }
     }
 
-    func pageBecameInactive(page: SFSafariPage) {
+    func pageBecameInactive(page: T) {
         self.queue.async { [weak self] in
             guard let self = self else { return }
-            self.addPageIfNeeded(page: page)
+            self.addPageIfNeeded(page: page, state: .inactive)
 
             os_log(.debug, log: self.log, "page (%s) became inactive", page.host)
 
@@ -102,9 +114,22 @@ class ReloadController {
         }
     }
 
-    // MARK: - private
+    // MARK: - private and internal
 
-    private func addPageIfNeeded(page: SFSafariPage) {
+    // this can actually be turned into the way to get pages inside ReloadController, not just tests
+    internal func getTrackedPages() -> [T: PageReloadingObject<T>] {
+        let group = DispatchGroup()
+        var pages: [T: PageReloadingObject<T>] = [:]
+        group.enter()
+        self.queue.async {
+            pages = self.trackedPages
+            group.leave()
+        }
+        group.wait()
+        return pages
+    }
+
+    private func addPageIfNeeded(page: T, state: PageReloadingObjectState) {
         if self.trackedPages[page] != nil {
             os_log(.info, log: self.log, "page (%s) already tracked, will not add", page.host)
             return
@@ -112,11 +137,11 @@ class ReloadController {
 
         os_log(.info, log: self.log, "new page (%s) detected, will add", page.host)
         let rule = self.ruleFor(page: page)
-        self.trackedPages[page] = PageReloadingObject(page: page, rule: rule, timer: nil)
+        self.trackedPages[page] = PageReloadingObject(page: page, rule: rule, timer: nil, state: state)
         os_log(.debug, log: self.log, "pages registered: %d", self.trackedPages.count)
     }
 
-    private func setupTimerFor(rule: Rule, page: SFSafariPage) {
+    private func setupTimerFor(rule: Rule, page: T) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             os_log(.debug, log: self.log, "will set timer for (%s) with interval %f", page.host, rule.refreshInterval)
@@ -127,7 +152,7 @@ class ReloadController {
         }
     }
 
-    private func ruleFor(page: SFSafariPage) -> Rule? {
+    private func ruleFor(page: T) -> Rule? {
         let rule = self.settings?.rules.reduce(nil as Rule?, { partialResult, rule in
             if !rule.enabled || rule.pattern.isEmpty {
                 return partialResult

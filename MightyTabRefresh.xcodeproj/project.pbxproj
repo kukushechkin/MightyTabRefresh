@@ -30,6 +30,11 @@
 		ED947BC02699E47800310CBA /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */; };
 		ED947C4C269A000800310CBA /* ExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947C4B269A000800310CBA /* ExtensionViewModel.swift */; };
 		ED947C50269B051200310CBA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ED947C4F269B051200310CBA /* .gitignore */; };
+		EDC15C5326E94D8C004BFF25 /* ReloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68F2F226CE940D00B43BC8 /* ReloadController.swift */; };
+		EDC15C5526E94DA5004BFF25 /* ReloadControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC15C5426E94DA5004BFF25 /* ReloadControllerTests.swift */; };
+		EDC15C5726E94E9C004BFF25 /* SFSafariPage+host.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03B06A26D56E5900D517B4 /* SFSafariPage+host.swift */; };
+		EDC15C5926E950A8004BFF25 /* SafariPageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC15C5826E950A8004BFF25 /* SafariPageWrapper.swift */; };
+		EDC15C5A26E95306004BFF25 /* SafariPageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC15C5826E950A8004BFF25 /* SafariPageWrapper.swift */; };
 		EDC341A326A620AA001BE768 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A226A620AA001BE768 /* SettingsView.swift */; };
 		EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A426A620EA001BE768 /* ControlsView.swift */; };
 		EDD142C4269B07FD0099470F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C3269B07FD0099470F /* .github */; };
@@ -105,6 +110,9 @@
 		ED947C4B269A000800310CBA /* ExtensionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewModel.swift; sourceTree = "<group>"; };
 		ED947C4E269B031100310CBA /* ExtensionSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExtensionSettings; sourceTree = "<group>"; };
 		ED947C4F269B051200310CBA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EDC15C5426E94DA5004BFF25 /* ReloadControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadControllerTests.swift; sourceTree = "<group>"; };
+		EDC15C5626E94DF5004BFF25 /* MightyTabRefresh.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MightyTabRefresh.xctestplan; sourceTree = "<group>"; };
+		EDC15C5826E950A8004BFF25 /* SafariPageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariPageWrapper.swift; sourceTree = "<group>"; };
 		EDC341A226A620AA001BE768 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EDC341A426A620EA001BE768 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		EDD142C3269B07FD0099470F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
@@ -173,6 +181,7 @@
 		ED947B782699E47600310CBA = {
 			isa = PBXGroup;
 			children = (
+				EDC15C5626E94DF5004BFF25 /* MightyTabRefresh.xctestplan */,
 				EDD142C5269B08B60099470F /* README.md */,
 				ED7378FC26D2D99D00A87A5D /* PrivacyPolicy.txt */,
 				EDD142C3269B07FD0099470F /* .github */,
@@ -216,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */,
+				EDC15C5426E94DA5004BFF25 /* ReloadControllerTests.swift */,
 			);
 			path = MightyTabRefreshTests;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 			children = (
 				ED947BC12699E47800310CBA /* Info.plist */,
 				ED68F2F126CC578A00B43BC8 /* MightyTabRefresh Extension.entitlements */,
+				EDC15C5826E950A8004BFF25 /* SafariPageWrapper.swift */,
 				ED68F2F226CE940D00B43BC8 /* ReloadController.swift */,
 				ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */,
 				ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */,
@@ -449,6 +460,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC15C5A26E95306004BFF25 /* SafariPageWrapper.swift in Sources */,
+				EDC15C5726E94E9C004BFF25 /* SFSafariPage+host.swift in Sources */,
+				EDC15C5526E94DA5004BFF25 /* ReloadControllerTests.swift in Sources */,
+				EDC15C5326E94D8C004BFF25 /* ReloadController.swift in Sources */,
 				ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,6 +484,7 @@
 				ED947BB82699E47800310CBA /* SafariExtensionViewController.swift in Sources */,
 				ED947BB62699E47800310CBA /* SafariExtensionHandler.swift in Sources */,
 				ED03B06B26D56E5900D517B4 /* SFSafariPage+host.swift in Sources */,
+				EDC15C5926E950A8004BFF25 /* SafariPageWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,7 +803,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MightyTabRefresh.app/Contents/MacOS/MightyTabRefresh";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mighty Tab Refresh.app/Contents/MacOS/Mighty Tab Refresh";
 			};
 			name = Debug;
 		};
@@ -811,7 +827,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MightyTabRefresh.app/Contents/MacOS/MightyTabRefresh";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mighty Tab Refresh.app/Contents/MacOS/Mighty Tab Refresh";
 			};
 			name = Release;
 		};

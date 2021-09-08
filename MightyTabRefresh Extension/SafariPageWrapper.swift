@@ -1,0 +1,23 @@
+//
+//  SafariPage.swift
+//  SafariPage
+//
+//  Created by Kukushkin, Vladimir on 8.9.2021.
+//
+
+import Foundation
+import SafariServices
+
+protocol SafariPageWrapperProtocol: Hashable {
+    var host: String { get }
+    func reload() -> Void
+}
+
+struct SafariPageWrapper: SafariPageWrapperProtocol {
+    let page: SFSafariPage
+    var host: String { self.page.host }
+
+    func reload() {
+        self.page.reload()
+    }
+}
