@@ -78,7 +78,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         weak var weakself = self
         page.getPropertiesWithCompletionHandler { properties in
             guard let self = weakself else { return }
-            guard let _ = properties?.url?.host else {
+            guard properties?.url?.host != nil else {
                 os_log(.debug, log: self.log, "[%{public}s]: blank page, ignore", self.selfUuid())
                 return
             }
