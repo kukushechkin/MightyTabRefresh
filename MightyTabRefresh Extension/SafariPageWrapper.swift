@@ -10,7 +10,7 @@ import SafariServices
 
 protocol SafariPageWrapperProtocol: Hashable {
     var host: String { get }
-    func reload() -> Void
+    func reload()
 }
 
 struct SafariPageWrapper: SafariPageWrapperProtocol {

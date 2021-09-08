@@ -17,7 +17,7 @@ enum PageReloadingObjectState {
 }
 
 /// Holds information of what page when should be reloaded
-class PageReloadingObject<T: SafariPageWrapperProtocol>  {
+class PageReloadingObject<T: SafariPageWrapperProtocol> {
     /// page wrapper
     let page: T
 
