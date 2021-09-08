@@ -78,30 +78,19 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         weak var weakself = self
         page.getPropertiesWithCompletionHandler { properties in
             guard let self = weakself else { return }
-            guard let pageUuid = userInfo?["uuid"] as? String else {
-                os_log(.debug, log: self.log, "[%{public}s]: page did not provide uuid, ignore", self.selfUuid())
-                return
-            }
-            guard let host = properties?.url?.host else {
+            guard let _ = properties?.url?.host else {
                 os_log(.debug, log: self.log, "[%{public}s]: blank page, ignore", self.selfUuid())
                 return
             }
 
-            if messageName == pageLoadedMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) loaded", self.selfUuid(), pageUuid, host)
-                Self.reloadController?.addPage(uuid: pageUuid, page: page)
-            }
             if messageName == pageWillUnloadMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) will unload", self.selfUuid(), pageUuid, host)
-                Self.reloadController?.removePage(uuid: pageUuid)
+                Self.reloadController?.removePage(page: page)
             }
             if messageName == pageBecameActiveMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) became active", self.selfUuid(), pageUuid, host)
-                Self.reloadController?.pageBecameActive(uuid: pageUuid)
+                Self.reloadController?.pageBecameActive(page: page)
             }
             if messageName == pageBecameInactiveMessageKey {
-                os_log(.debug, log: self.log, "[%{public}s]: page %{public}s (%s) became inactive", self.selfUuid(), pageUuid, host)
-                Self.reloadController?.pageBecameInactive(uuid: pageUuid)
+                Self.reloadController?.pageBecameInactive(page: page)
             }
         }
     }
