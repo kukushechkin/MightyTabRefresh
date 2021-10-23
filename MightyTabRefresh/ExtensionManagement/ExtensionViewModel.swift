@@ -37,12 +37,13 @@ internal class ExtensionViewModel: ObservableObject {
            let settings = ExtensionSettings(from: persistentData) {
             self.settings = settings
         } else {
+#if DEBUG
             // Hardcode some test settings if there is none
             self.settings = ExtensionSettings(rules: [
                 Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
-                Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
                 Rule(enabled: false, pattern: "google.com", refreshInterval: 60.0)
             ])
+#endif
         }
 
         // Will ask Safari for a state update
