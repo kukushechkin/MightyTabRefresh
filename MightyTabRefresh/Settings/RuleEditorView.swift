@@ -26,12 +26,14 @@ struct RuleEditorView: View {
                     self.rule.pattern = self.rulePattern
                 })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: 300.0)
                 Spacer()
-                    .frame(width: 50, height: 0, alignment: .leading)
-
+                    .frame(width: 20, height: 0, alignment: .leading)
                 Text(refreshIntervalFormatter.string(for: self.ruleRefreshInterval) ?? "-")
                     .foregroundColor(rule.enabled ? Color(NSColor.controlTextColor) : Color(NSColor.disabledControlTextColor))
-
+                    .frame(width: 200.0, alignment: .leading)
+                Spacer()
+                    .frame(width: 20, height: 0, alignment: .leading)
                 NonLinearSlider(value: self.$ruleRefreshInterval, type: .parabolic) { _ in } onSubmit: {
                     self.rule.refreshInterval = self.ruleRefreshInterval
                 }
