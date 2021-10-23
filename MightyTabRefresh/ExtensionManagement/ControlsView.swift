@@ -21,7 +21,7 @@ struct ControlsView: View {
                     .foregroundColor(Color(NSColor.disabledControlTextColor))
 
             } else {
-                Text("Extension is not active. Please, enable extension in Safari preferences.")
+                Text("Extension is not active, please, enable extension in Safari preferences")
                 .foregroundColor(Color.red)
             }
             Button(action: {

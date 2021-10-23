@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>refresh every %d seconds</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@seconds@</string>
+            <key>seconds</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>перезагружать постоянно</string>
+                <key>one</key>
+                <string>перезагружать постоянно</string>
+                <key>few</key>
+                <string>перезагружать каждые %d секунды</string>
+                <key>many</key>
+                <string>перезагружать каждые %d секунд</string>
+                <key>other</key>
+                <string>перезагружать каждые %d секунд</string>
+            </dict>
+        </dict>
+        <key>refresh every %d minutes</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@minutes@</string>
+            <key>minutes</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>перезагружать каждую минуту</string>
+                <key>one</key>
+                <string>перезагружать каждую минуту</string>
+                <key>few</key>
+                <string>перезагружать каждые %d минуты</string>
+                <key>many</key>
+                <string>перезагружать каждые %d минут</string>
+                <key>other</key>
+                <string>перезагружать каждые %d минут</string>
+            </dict>
+        </dict>
+        <key>refresh every %d hours</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@hours@</string>
+            <key>hours</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>перезагружать каждый час</string>
+                <key>one</key>
+                <string>перезагружать каждый час</string>
+                <key>few</key>
+                <string>перезагружать каждые %d часа</string>
+                <key>many</key>
+                <string>перезагружать каждые %d часов</string>
+                <key>other</key>
+                <string>перезагружать каждые %d часов</string>
+            </dict>
+        </dict>
+    </dict>
+</plist>

@@ -12,6 +12,7 @@
 		ED0D6E6B26D181820030F153 /* ExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E6A26D181820030F153 /* ExtensionController.swift */; };
 		ED0D6E7126D189180030F153 /* RuleEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E7026D189180030F153 /* RuleEditorView.swift */; };
 		ED0D6E7326D189300030F153 /* DeleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D6E7226D189300030F153 /* DeleteButtonView.swift */; };
+		ED4B31A727249FB100E84691 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4B31A5272492B800E84691 /* Localizable.strings */; };
 		ED518A3A26E170A400C44E5E /* RefreshIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518A3926E170A400C44E5E /* RefreshIntervalFormatter.swift */; };
 		ED68F2DE26C80D5000B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DD26C80D5000B43BC8 /* ExtensionSettings */; };
 		ED68F2E026C80D5700B43BC8 /* ExtensionSettings in Frameworks */ = {isa = PBXBuildFile; productRef = ED68F2DF26C80D5700B43BC8 /* ExtensionSettings */; };
@@ -39,6 +40,7 @@
 		EDC341A526A620EA001BE768 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC341A426A620EA001BE768 /* ControlsView.swift */; };
 		EDD142C4269B07FD0099470F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C3269B07FD0099470F /* .github */; };
 		EDD142C6269B08B60099470F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDD142C5269B08B60099470F /* README.md */; };
+		EDDCF7CD26ECA87E0092A429 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EDDCF7CF26ECA87E0092A429 /* Localizable.stringsdict */; };
 		EDE3421026D95A0D00ADCBDA /* NonLinearSlider in Frameworks */ = {isa = PBXBuildFile; productRef = EDE3420F26D95A0D00ADCBDA /* NonLinearSlider */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,8 @@
 		ED0D6E6A26D181820030F153 /* ExtensionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionController.swift; sourceTree = "<group>"; };
 		ED0D6E7026D189180030F153 /* RuleEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleEditorView.swift; sourceTree = "<group>"; };
 		ED0D6E7226D189300030F153 /* DeleteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButtonView.swift; sourceTree = "<group>"; };
+		ED4B31A4272492B800E84691 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED4B31A6272492BB00E84691 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED518A3926E170A400C44E5E /* RefreshIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshIntervalFormatter.swift; sourceTree = "<group>"; };
 		ED68F2E126C9090C00B43BC8 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		ED68F2F126CC578A00B43BC8 /* MightyTabRefresh Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MightyTabRefresh Extension.entitlements"; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		EDC341A426A620EA001BE768 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		EDD142C3269B07FD0099470F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		EDD142C5269B08B60099470F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EDDCF7CE26ECA87E0092A429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		EDDCF7D226ECAAE30092A429 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EDE3420E26D9576100ADCBDA /* NonLinearSlider */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NonLinearSlider; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +187,8 @@
 		ED947B782699E47600310CBA = {
 			isa = PBXGroup;
 			children = (
+				EDDCF7CF26ECA87E0092A429 /* Localizable.stringsdict */,
+				ED4B31A5272492B800E84691 /* Localizable.strings */,
 				EDC15C5626E94DF5004BFF25 /* MightyTabRefresh.xctestplan */,
 				EDD142C5269B08B60099470F /* README.md */,
 				ED7378FC26D2D99D00A87A5D /* PrivacyPolicy.txt */,
@@ -385,6 +393,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = ED947B782699E47600310CBA;
 			productRefGroup = ED947B822699E47600310CBA /* Products */;
@@ -407,8 +416,10 @@
 				ED7378FD26D2D99D00A87A5D /* PrivacyPolicy.txt in Resources */,
 				EDD142C4269B07FD0099470F /* .github in Resources */,
 				ED947C50269B051200310CBA /* .gitignore in Resources */,
+				ED4B31A727249FB100E84691 /* Localizable.strings in Resources */,
 				EDD142C6269B08B60099470F /* README.md in Resources */,
 				ED947B962699E47800310CBA /* Assets.xcassets in Resources */,
+				EDDCF7CD26ECA87E0092A429 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,12 +520,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		ED4B31A5272492B800E84691 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED4B31A4272492B800E84691 /* en */,
+				ED4B31A6272492BB00E84691 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		ED947BBE2699E47800310CBA /* SafariExtensionViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ED947BBF2699E47800310CBA /* Base */,
 			);
 			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+		EDDCF7CF26ECA87E0092A429 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDDCF7CE26ECA87E0092A429 /* en */,
+				EDDCF7D226ECAAE30092A429 /* ru */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -706,10 +735,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_ENTITLEMENTS = MightyTabRefresh/MightyTabRefresh.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -748,10 +779,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_ENTITLEMENTS = MightyTabRefresh/MightyTabRefresh.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>refresh every %d seconds</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@seconds@</string>
+            <key>seconds</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>refresh continuously</string>
+                <key>one</key>
+                <string>refresh continuously</string>
+                <key>other</key>
+                <string>refresh every %d seconds</string>
+            </dict>
+        </dict>
+        <key>refresh every %d minutes</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@minutes@</string>
+            <key>minutes</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>refresh every minute</string>
+                <key>one</key>
+                <string>refresh every minute</string>
+                <key>other</key>
+                <string>refresh every %d minutes</string>
+            </dict>
+        </dict>
+        <key>refresh every %d hours</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@hours@</string>
+            <key>hours</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>refresh every hour</string>
+                <key>one</key>
+                <string>refresh every hour</string>
+                <key>other</key>
+                <string>refresh every %d hours</string>
+            </dict>
+        </dict>
+    </dict>
+</plist>
