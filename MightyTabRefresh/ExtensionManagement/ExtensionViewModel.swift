@@ -32,7 +32,8 @@ internal class ExtensionViewModel: ObservableObject {
     internal init(extensionController: ExtensionControllerProtocol) {
         self.extensionController = extensionController
         self.enabled = defaults?.bool(forKey: lastKnownExtensionStateKey) ?? false
-
+        self.settings = ExtensionSettings(rules: [])
+        
         if let persistentData = defaults?.object(forKey: lastKnownExtensionSettingsKey),
            let settings = ExtensionSettings(from: persistentData) {
             self.settings = settings
