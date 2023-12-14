@@ -3,7 +3,7 @@
     {
       "color" : {
         "platform" : "osx",
-        "reference" : "systemRedColor"
+        "reference" : "systemGrayColor"
       },
       "idiom" : "universal"
     },
@@ -14,15 +14,6 @@
           "value" : "dark"
         }
       ],
-      "color" : {
-        "color-space" : "display-p3",
-        "components" : {
-          "alpha" : "1.000",
-          "blue" : "0.169",
-          "green" : "0.205",
-          "red" : "0.580"
-        }
-      },
       "idiom" : "universal"
     }
   ],
