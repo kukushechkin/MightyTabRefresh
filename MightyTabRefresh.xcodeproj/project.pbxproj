@@ -820,7 +820,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kukushechkin.MightyTabRefresh;
 				PRODUCT_NAME = "Mighty Tab Refresh";
-				RUN_DOCUMENTATION_COMPILER = YES;
+				RUN_DOCUMENTATION_COMPILER = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
