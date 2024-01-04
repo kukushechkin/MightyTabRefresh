@@ -25,8 +25,8 @@ struct RuleEditorView: View {
                 TextField("e.g. apple.com", text: self.$rulePattern, onCommit: {
                     self.rule.pattern = self.rulePattern
                 })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 300.0)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(width: 300.0)
                 Spacer()
                     .frame(width: 20, height: 0, alignment: .leading)
                 Text(refreshIntervalFormatter.string(for: self.ruleRefreshInterval) ?? "-")

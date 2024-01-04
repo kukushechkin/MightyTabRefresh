@@ -23,7 +23,7 @@
 		ED947B962699E47800310CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED947B952699E47800310CBA /* Assets.xcassets */; };
 		ED947BA12699E47800310CBA /* MightyTabRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BA02699E47800310CBA /* MightyTabRefreshTests.swift */; };
 		ED947BAB2699E47800310CBA /* MightyTabRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BAA2699E47800310CBA /* MightyTabRefreshUITests.swift */; };
-		ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = ED947BB02699E47800310CBA /* MightyTabRefresh Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ED947BB62699E47800310CBA /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BB52699E47800310CBA /* SafariExtensionHandler.swift */; };
 		ED947BB82699E47800310CBA /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED947BB72699E47800310CBA /* SafariExtensionViewController.swift */; };
 		ED947BBB2699E47800310CBA /* MightyTabRefreshInjectedScript.js in Resources */ = {isa = PBXBuildFile; fileRef = ED947BBA2699E47800310CBA /* MightyTabRefreshInjectedScript.js */; };
@@ -69,15 +69,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ED947BC72699E47800310CBA /* Embed App Extensions */ = {
+		ED947BC72699E47800310CBA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed App Extensions */,
+				ED947BB12699E47800310CBA /* MightyTabRefresh Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -288,7 +288,7 @@
 				ED947B7D2699E47600310CBA /* Sources */,
 				ED947B7E2699E47600310CBA /* Frameworks */,
 				ED947B7F2699E47600310CBA /* Resources */,
-				ED947BC72699E47800310CBA /* Embed App Extensions */,
+				ED947BC72699E47800310CBA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -368,7 +368,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					ED947B802699E47600310CBA = {
 						CreatedOnToolsVersion = 13.0;
@@ -554,6 +554,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -584,9 +585,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -618,6 +621,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -648,9 +652,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -678,13 +684,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MightyTabRefresh Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Might Tab Refresh Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mighty Tab Refresh Extension";
 				INFOPLIST_KEY_CFBundleExecutable = "MightyTabRefresh Extension";
 				INFOPLIST_KEY_CFBundleName = "MightyTabRefresh Extension";
 				INFOPLIST_KEY_CFBundleVersion = 1;
@@ -711,13 +718,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MightyTabRefresh Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Might Tab Refresh Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mighty Tab Refresh Extension";
 				INFOPLIST_KEY_CFBundleExecutable = "MightyTabRefresh Extension";
 				INFOPLIST_KEY_CFBundleName = "MightyTabRefresh Extension";
 				INFOPLIST_KEY_CFBundleVersion = 1;
@@ -749,6 +757,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 13;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
@@ -794,6 +803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 13;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				ENABLE_APP_SANDBOX = YES;
@@ -835,6 +845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -860,6 +871,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -884,6 +896,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -908,6 +921,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AC5986BBE6;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (

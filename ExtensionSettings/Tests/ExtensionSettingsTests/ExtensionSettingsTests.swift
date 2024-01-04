@@ -1,5 +1,5 @@
-import XCTest
 @testable import ExtensionSettings
+import XCTest
 
 final class ExtensionSettingsTests: XCTestCase {
     func testExample() {

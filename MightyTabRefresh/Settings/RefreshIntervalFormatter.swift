@@ -11,35 +11,35 @@ class RefreshIntervalFormatter: Formatter {
     override func string(for obj: Any?) -> String? {
         if let interval = obj as? TimeInterval {
             if interval < 120 {
-                return self.secondsString(count: UInt(interval))
+                return secondsString(count: UInt(interval))
             }
             if interval < 3600 {
-                return self.minutesString(count: UInt(interval)/60)
+                return minutesString(count: UInt(interval) / 60)
             }
-            return self.hoursString(count: UInt(interval)/60/60)
+            return hoursString(count: UInt(interval) / 60 / 60)
         }
         return nil
     }
 
-    override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
+    override func getObjectValue(_: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for _: String, errorDescription _: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
         true
     }
 
     private func secondsString(count: UInt) -> String {
-        let formatString : String = NSLocalizedString("refresh every %d seconds", comment: "refresh every %d seconds")
-        let resultString : String = String.localizedStringWithFormat(formatString, count)
+        let formatString: String = NSLocalizedString("refresh every %d seconds", comment: "refresh every %d seconds")
+        let resultString = String.localizedStringWithFormat(formatString, count)
         return resultString
     }
 
     private func minutesString(count: UInt) -> String {
-        let formatString : String = NSLocalizedString("refresh every %d minutes", comment: "refresh every %d minutes")
-        let resultString : String = String.localizedStringWithFormat(formatString, count)
+        let formatString: String = NSLocalizedString("refresh every %d minutes", comment: "refresh every %d minutes")
+        let resultString = String.localizedStringWithFormat(formatString, count)
         return resultString
     }
 
     private func hoursString(count: UInt) -> String {
-        let formatString : String = NSLocalizedString("refresh every %d hours", comment: "refresh every %d hours")
-        let resultString : String = String.localizedStringWithFormat(formatString, count)
+        let formatString: String = NSLocalizedString("refresh every %d hours", comment: "refresh every %d hours")
+        let resultString = String.localizedStringWithFormat(formatString, count)
         return resultString
     }
 }

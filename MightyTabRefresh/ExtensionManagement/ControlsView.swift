@@ -5,31 +5,30 @@
 //  Created by Kukushkin, Vladimir on 20.7.2021.
 //
 
+import ExtensionSettings
 import Foundation
 import SwiftUI
-import ExtensionSettings
 
 struct ControlsView: View {
-    @EnvironmentObject  var extensionViewModel: ExtensionViewModel
+    @EnvironmentObject var extensionViewModel: ExtensionViewModel
 
     var body: some View {
-        HStack {
-        }
-        .toolbar {
-            if self.extensionViewModel.enabled {
-                Text("Extension is active, everything is fine, enjoy refreshing tabs")
-                    .foregroundColor(Color(NSColor.disabledControlTextColor))
+        HStack {}
+            .toolbar {
+                if self.extensionViewModel.enabled {
+                    Text("Extension is active, everything is fine, enjoy refreshing tabs")
+                        .foregroundColor(Color(NSColor.disabledControlTextColor))
 
-            } else {
-                Text("Extension is not active, please, enable extension in Safari preferences")
-                .foregroundColor(Color.red)
+                } else {
+                    Text("Extension is not active, please, enable extension in Safari preferences")
+                        .foregroundColor(Color.red)
+                }
+                Button(action: {
+                    self.extensionViewModel.updateState()
+                    self.extensionViewModel.updateSettings()
+                    self.extensionViewModel.openSafariPreferences()
+                }) { Label("", systemImage: "safari") }
             }
-            Button(action: {
-                self.extensionViewModel.updateState()
-                self.extensionViewModel.updateSettings()
-                self.extensionViewModel.openSafariPreferences()
-            }) { Label("", systemImage: "safari") }
-        }
     }
 }
 

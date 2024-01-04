@@ -1,5 +1,5 @@
 //
-//  SafariPage.swift
+//  SafariPageWrapper.swift
 //  SafariPage
 //
 //  Created by Kukushkin, Vladimir on 8.9.2021.
@@ -15,9 +15,9 @@ protocol SafariPageWrapperProtocol: Hashable {
 
 struct SafariPageWrapper: SafariPageWrapperProtocol {
     let page: SFSafariPage
-    var host: String { self.page.host }
+    var host: String { page.host }
 
     func reload() {
-        self.page.reload()
+        page.reload()
     }
 }

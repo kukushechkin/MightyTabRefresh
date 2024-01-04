@@ -1,10 +1,14 @@
 (function() {
     function updateVisibilityState() {
         if(document.hidden) {
-            safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageBecameInactive", { });
+            safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageBecameInactive", {
+                url: window.location.href
+            });
         }
         else {
-            safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageBecameActive", { });
+            safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageBecameActive", {
+                url: window.location.href
+            });
         }
     }
 
@@ -15,7 +19,9 @@
         updateVisibilityState();
 
         window.addEventListener("beforeunload", function(e) {
-            safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageWillUnload", { });
-        }, false);
+            safari.extension.dispatchMessage("com.kukushechkin.MightyTabRefresh.scriptPageWillUnload", {
+                url: window.location.href
+            });
+        });
     });
 }());

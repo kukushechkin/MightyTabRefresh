@@ -1,5 +1,5 @@
-import XCTest
 @testable import NonLinearSlider
+import XCTest
 
 final class NonLinearSliderTests: XCTestCase {
     func testExample() {

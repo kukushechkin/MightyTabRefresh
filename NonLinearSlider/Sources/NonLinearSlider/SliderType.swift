@@ -5,7 +5,7 @@ public enum SliderType {
     case parabolic
     case hyperbolic
 
-    internal static func transformFunction(_ type: SliderType) -> SliderFunctionProtocol {
+    static func transformFunction(_ type: SliderType) -> SliderFunctionProtocol {
         // this fixes "outline init" error when an object is being initialized in switch
         _ = LinearFunction()
         _ = ParabolicFunction()
@@ -22,12 +22,12 @@ public enum SliderType {
     }
 }
 
-internal protocol SliderFunctionProtocol {
+protocol SliderFunctionProtocol {
     func value(_ x: Double) -> Double
     func inverseValue(_ y: Double) -> Double
 }
 
-internal struct LinearFunction: SliderFunctionProtocol {
+struct LinearFunction: SliderFunctionProtocol {
     func value(_ x: Double) -> Double {
         x
     }
@@ -37,7 +37,7 @@ internal struct LinearFunction: SliderFunctionProtocol {
     }
 }
 
-internal struct ParabolicFunction: SliderFunctionProtocol {
+struct ParabolicFunction: SliderFunctionProtocol {
     func value(_ x: Double) -> Double {
         x * x * x * x
     }
@@ -47,7 +47,7 @@ internal struct ParabolicFunction: SliderFunctionProtocol {
     }
 }
 
-internal struct HyperbolicFunction: SliderFunctionProtocol {
+struct HyperbolicFunction: SliderFunctionProtocol {
     func value(_ x: Double) -> Double {
         100.0 / x
     }

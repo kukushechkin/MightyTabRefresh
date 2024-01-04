@@ -7,7 +7,7 @@ public struct Rule: Codable, Identifiable, Equatable {
     public var refreshInterval: TimeInterval
 
     public init(enabled: Bool, pattern: String, refreshInterval: TimeInterval) {
-        self.id = UUID()
+        id = UUID()
         self.enabled = enabled
         self.pattern = pattern
         self.refreshInterval = refreshInterval
@@ -18,7 +18,7 @@ public struct Rule: Codable, Identifiable, Equatable {
     }
 
     public func matches(host: String) -> Bool {
-        host.contains(self.pattern)
+        host.contains(pattern)
     }
 }
 
@@ -41,7 +41,7 @@ public extension ExtensionSettings {
 //    }
 
     mutating func add(rule: Rule = Rule.defaultRule()) {
-        self.rules += [rule]
+        rules += [rule]
     }
 }
 
@@ -49,10 +49,11 @@ public extension ExtensionSettings {
 public extension ExtensionSettings {
     init?(from json: Any) {
         guard let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []),
-              let decoded = try? JSONDecoder().decode(ExtensionSettings.self, from: jsonData) else {
+              let decoded = try? JSONDecoder().decode(ExtensionSettings.self, from: jsonData)
+        else {
             return nil
         }
-        self.rules = decoded.rules
+        rules = decoded.rules
     }
 
     func encode() throws -> Any {

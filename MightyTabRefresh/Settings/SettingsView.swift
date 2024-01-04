@@ -5,9 +5,9 @@
 //  Created by Kukushkin, Vladimir on 20.7.2021.
 //
 
+import ExtensionSettings
 import Foundation
 import SwiftUI
-import ExtensionSettings
 
 struct RulesListView: View {
     @Binding var rules: [Rule]
@@ -16,7 +16,8 @@ struct RulesListView: View {
         ForEach(self.rules, id: \.id) { rule in
             HStack {
                 if let index = self.rules.firstIndex(of: rule),
-                   index < self.rules.count-1 {
+                   index < self.rules.count - 1
+                {
                     RuleEditorView(rule: self.$rules[index],
                                    rulePattern: rule.pattern,
                                    ruleRefreshInterval: rule.refreshInterval)
@@ -65,7 +66,7 @@ struct SettingsView: View {
     }
 
     func add() {
-        self.extensionSettings.add()
+        extensionSettings.add()
     }
 }
 
@@ -75,22 +76,22 @@ struct SettingsView_Previews: PreviewProvider {
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
                 Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
                 Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0)
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
             ])))
-                .environment(\.colorScheme, .light)
+            .environment(\.colorScheme, .light)
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
                 Rule(enabled: true, pattern: "apple.com", refreshInterval: 1.0),
                 Rule(enabled: true, pattern: "ya.ru", refreshInterval: 5.0),
-                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0)
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
             ])))
-                .environment(\.colorScheme, .dark)
+            .environment(\.colorScheme, .dark)
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
             ])))
-                .environment(\.colorScheme, .light)
+            .environment(\.colorScheme, .light)
             SettingsView(extensionSettings: .constant(ExtensionSettings(rules: [
-                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0)
+                Rule(enabled: false, pattern: "radio-t.com", refreshInterval: 42.0),
             ])))
-                .environment(\.colorScheme, .light)
+            .environment(\.colorScheme, .light)
         }
     }
 }

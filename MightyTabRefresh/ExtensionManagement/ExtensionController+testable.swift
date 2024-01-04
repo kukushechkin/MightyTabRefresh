@@ -5,21 +5,21 @@
 //  Created by Kukushkin, Vladimir on 21.8.2021.
 //
 
-import Foundation
 import ExtensionSettings
+import Foundation
 
 struct ExtensionControllerMock: ExtensionControllerProtocol {
     let enabled: Bool
 
     func getState(_ callback: @escaping (ExtensionState) -> Void) {
-        callback(self.enabled ? .enabled : .disabled)
+        callback(enabled ? .enabled : .disabled)
     }
 
     func openSafariPreferences() {
         //
     }
 
-    func sendSettingsToExtension(name: String, settings: [String: Any]) {
+    func sendSettingsToExtension(name _: String, settings _: [String: Any]) {
         //
     }
 }

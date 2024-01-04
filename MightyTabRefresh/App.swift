@@ -1,16 +1,16 @@
 //
-//  AppDelegate.swift
+//  App.swift
 //  MightyTabRefresh
 //
 //  Created by Kukushkin, Vladimir on 10.7.2021.
 //
 
-import SwiftUI
 import AppKit
+import SwiftUI
 
 // required to close app on last window close
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
         return true
     }
 }

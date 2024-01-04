@@ -5,28 +5,27 @@
 //  Created by Kukushkin, Vladimir on 8.9.2021.
 //
 
-import XCTest
-import SafariServices
 import ExtensionSettings
+import SafariServices
+import XCTest
 
 struct SafariPageWrapperMock: SafariPageWrapperProtocol {
     var reloadExpectation: XCTestExpectation?
     var host: String
 
     func reload() {
-        self.reloadExpectation?.fulfill()
+        reloadExpectation?.fulfill()
     }
 }
 
 class ReloadControllerTests: XCTestCase {
-
     let reloadController = ReloadController<SafariPageWrapperMock>()
 
     let settings = ExtensionSettings(rules: [
         Rule(enabled: true, pattern: "host1", refreshInterval: 1.0),
         Rule(enabled: true, pattern: "host2", refreshInterval: 1.0),
         Rule(enabled: false, pattern: "host3", refreshInterval: 1.0),
-        Rule(enabled: true, pattern: "host4", refreshInterval: 5.0)
+        Rule(enabled: true, pattern: "host4", refreshInterval: 5.0),
     ])
 
     var page1 = SafariPageWrapperMock(reloadExpectation: nil, host: "www.host1.com")
@@ -124,7 +123,7 @@ class ReloadControllerTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
